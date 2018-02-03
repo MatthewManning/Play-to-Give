@@ -12,12 +12,12 @@
 	    <div class="top">
 	      <div class="bar blueberry card">
 	        <!--<a class="bar-item button padding-large hide-medium hide-large right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>-->
-	        <a href="#" class="bar-item button hover-apple-core padding-large"><img src="./images/d-pad_example.png" style="max-height:25px"> PLAY TO GIVE</a>
-	        <a href="#events" class="bar-item button hover-apple-core padding-large hide-small">EVENTS</a>
-	        <a href="#charities" class="bar-item button hover-apple-core padding-large hide-small">CHARITIES</a>
-	        <a href="#games" class="bar-item button hover-apple-core padding-large hide-small">GAMES</a>
-	        <a href="#about" class="bar-item button hover-apple-core padding-large hide-small">ABOUT US</a>
-	        <a href="#contact" class="bar-item button hover-apple-core padding-large hide-small">CONTACT</a>
+	        <a href="./index.php" class="bar-item button hover-apple-core padding-large"><img src="./images/d-pad_example.png" style="max-height:25px"> PLAY TO GIVE</a>
+	        <a href="./index.php#events" class="bar-item button hover-apple-core padding-large hide-small">EVENTS</a>
+	        <a href="./index.php#charities" class="bar-item button hover-apple-core padding-large hide-small">CHARITIES</a>
+	        <a href="./index.php#games" class="bar-item button hover-apple-core padding-large hide-small">GAMES</a>
+	        <a href="./index.php#about" class="bar-item button hover-apple-core padding-large hide-small">ABOUT US</a>
+	        <a href="./index.php#contact" class="bar-item button hover-apple-core padding-large hide-small">CONTACT</a>
 	        <!--<div class="dropdown-hover hide-small">
 	          <button class="padding-large button" title="More">MORE <i class="fa fa-caret-down"></i></button>
 	          <div class="dropdown-content bar-block card-4">
