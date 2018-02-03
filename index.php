@@ -67,27 +67,20 @@
     <div class="content" style="max-width:2000px;margin-top:46px">
 
       <!-- Automatic Slideshow Images -->
-      <div class="mySlides display-container center">
-        <img src="./images/trevor_project_example.jpg" style="max-height:540px">
-        <div class="display-bottommiddle container text-white padding-32 hide-small">
-          <h3>Trevor Project</h3>
-          <p><b>The Trevor Project is....</b></p>
-        </div>
-      </div>
-      <div class="mySlides display-container center">
-        <img src="./images/just_monika_example.jpg" style="max-height:540px">
-        <div class="display-bottommiddle container text-white padding-32 hide-small">
-          <h3>New York</h3>
-          <p><b>The atmosphere in New York is lorem ipsum.</b></p>
-        </div>
-      </div>
-      <div class="mySlides display-container center">
-        <img src="./images/rooster_teeth_example.jpg" style="max-height:540px">
-        <div class="display-bottommiddle container text-white padding-32 hide-small">
-          <h3>Chicago</h3>
-          <p><b>Thank you, Chicago - A night we won't forget.</b></p>
-        </div>
-      </div>
+	  <?php
+	  $dirname = "images/slideshow/";
+	  $images = glob($dirname."*.jpg");
+	  foreach($images as $image) {
+		  echo '<div class="mySlides display-container center">
+					<img src="'.$image.'" style="max-height:540px; max-width:90%; padding:20px">
+			    </div>';
+	  }
+	  ?>
+	  
+	  <!-- <div class="display-bottommiddle container text-white padding-32 hide-small">
+			  <h3>Trevor Project</h3>
+			  <p><b>The Trevor Project is....</b></p>
+			</div> -->
 
       <!-- The Events Section -->
       <div class="container content center padding-64" style="max-width:800px" id="events">
@@ -96,39 +89,39 @@
         <table style="width:400px; margin: auto" class="table-all white text-grey">
           <tr>
             <td style="vertical-align: middle; height:50px">Nashville</td>
-            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right">April 23</button></td>
+            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right" style="width:70%">April 23</button></td>
           </tr>
           <tr>
             <td style="vertical-align: middle; height:50px">Atlanta</td>
-            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right">April 30</button></td>
+            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right" style="width:70%">May 7</button></td>
           </tr>
           <tr>
             <td style="vertical-align: middle; height:50px">St. Louis</td>
-            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right">May 7</button></td>
+            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right" style="width:70%">September 31</button></td>
           </tr>
         </table>
       </div>
 
       <!-- The Charities Section -->
       <div class="blueberry" id="charities">
-        <div class="container content padding-64" style="max-width:800px">
+        <div class="container content padding-64" style="max-width:90%">
           <h2 class="wide center">CHARITIES</h2>
           <p class="opacity center"><i>Contribute to one of these great organizations!</i></p><br>
           <table class="table-all white text-grey">
             <tr>
-              <td style="vertical-align: middle; height:100px"><img src="./images/Planned_Parenthood_logo_example.svg" style="max-width:267px; max-height:100px"></td>
+              <td style="vertical-align: middle; text-align:center; height:100px"><img src="./images/Planned_Parenthood_logo_example.svg" style="max-width:60%; min-width:30%; max-height:100px"></td>
               <td style="vertical-align: middle; height:100px">Planned Parenthood Federation of America</td>
               <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
               <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Select</button></td>
             </tr>
             <tr>
-              <td style="vertical-align: middle; height:100px"><img src="./images/The_Trevor_Project_logo_example.svg" style="max-width:267px; max-height:100px"></td>
+              <td style="vertical-align: middle; text-align:center; height:100px"><img src="./images/The_Trevor_Project_logo_example.svg" style="max-width:60%; max-height:100px"></td>
               <td style="vertical-align: middle; height:100px">The Trevor Project</td>
               <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
               <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Select</button></td>
             </tr>
             <tr>
-              <td style="vertical-align: middle; height:100px"><img src="./images/Wounded_Warrior_Project_logo_example.svg" style="max-width:267px; max-height:100px"></td>
+              <td style="vertical-align: middle; text-align:center; height:100px"><img src="./images/Wounded_Warrior_Project_logo_example.svg" style="max-width:60%; max-height:100px"></td>
               <td style="vertical-align: middle; height:100px">Wounded Warrior Project</td>
               <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
               <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Select</button></td>
