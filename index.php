@@ -46,7 +46,7 @@
               <p><label><i class="fa fa-key"></i> Password</label></p>
               <input class="input border" type="password" placeholder="Enter Password">
               <button class="button block blueberry hover-apple-core padding-16 section right">LOGIN <i class="fa fa-check"></i></button>
-              <p class="left">Not a member? <a href="#" class="text-blue">Sign Up</a></p>
+              <p class="left">Not a member? <a href="./register.php" class="text-blue">Sign Up</a></p>
             </form>
           </div>
         </div>
