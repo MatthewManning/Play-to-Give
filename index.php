@@ -86,19 +86,34 @@
       <div class="container content center padding-64" style="max-width:800px" id="events">
         <h2 class="wide">EVENTS</h2>
         <p class="opacity center"><i>Find one near you!</i></p><br>
-        <table style="width:400px; margin: auto" class="table-all white text-grey">
-          <tr>
-            <td style="vertical-align: middle; height:50px">Nashville</td>
-            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right" style="width:70%">April 23</button></td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle; height:50px">Atlanta</td>
-            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right" style="width:70%">May 7</button></td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle; height:50px">St. Louis</td>
-            <td style="vertical-align: middle; height:50px"><button class="button apricot hover-apple-core right" style="width:70%">September 31</button></td>
-          </tr>
+        <table style="width:80%; max-width:600px; margin: auto" class="table-all white text-grey">
+          <?php
+		  $servername = "localhost";
+		  $username = "root";
+		  $dbname = "playtogive_db";
+		  
+		  $conn = new mysqli($servername, $username, NULL, $dbname);
+		  if ($conn->connect_error){
+			  die("Connection failure - " . $conn->connect_error);
+		  }
+		  
+		  $sql = "SELECT * FROM events";
+		  $result = $conn->query($sql);
+		  
+		  if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+				echo "<tr>
+					<td style=\"vertical-align: middle; height:50px\">" . $row["location"] . "</td>
+					<td style=\"vertical-align: middle; height:50px\"><button class=\"button apricot hover-apple-core right\" style=\"width:70%\">" . $row["date"] . "</button></td>
+				</tr>";
+				}
+			} else {
+				echo "<tr>
+					<td style=\"vertical-align: middle; height:50px\">No events, check back later!</td>
+					</tr>";
+			}
+			$conn->close();
+		  ?>
         </table>
       </div>
 
@@ -108,24 +123,35 @@
           <h2 class="wide center">CHARITIES</h2>
           <p class="opacity center"><i>Contribute to one of these great organizations!</i></p><br>
           <table class="table-all white text-grey">
-            <tr>
-              <td style="vertical-align: middle; text-align:center; height:100px"><img src="./images/Planned_Parenthood_logo_example.svg" style="max-width:60%; min-width:30%; max-height:100px"></td>
-              <td style="vertical-align: middle; height:100px">Planned Parenthood Federation of America</td>
-              <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
-              <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Select</button></td>
-            </tr>
-            <tr>
-              <td style="vertical-align: middle; text-align:center; height:100px"><img src="./images/The_Trevor_Project_logo_example.svg" style="max-width:60%; max-height:100px"></td>
-              <td style="vertical-align: middle; height:100px">The Trevor Project</td>
-              <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
-              <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Select</button></td>
-            </tr>
-            <tr>
-              <td style="vertical-align: middle; text-align:center; height:100px"><img src="./images/Wounded_Warrior_Project_logo_example.svg" style="max-width:60%; max-height:100px"></td>
-              <td style="vertical-align: middle; height:100px">Wounded Warrior Project</td>
-              <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
-              <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Select</button></td>
-            </tr>
+			 <?php
+			  $servername = "localhost";
+			  $username = "root";
+			  $dbname = "playtogive_db";
+			  
+			  $conn = new mysqli($servername, $username, NULL, $dbname);
+			  if ($conn->connect_error){
+				  die("Connection failure - " . $conn->connect_error);
+			  }
+			  
+			  $sql = "SELECT * FROM charities";
+			  $result = $conn->query($sql);
+			  
+			  if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+					echo "<tr>
+					  <td style=\"vertical-align: middle; text-align:center; height:100px\"><img src=./images/" . $row["picture"] . " style=\"max-width:60%; min-width:30%; max-height:100px\"></td>
+					  <td style=\"vertical-align: middle; height:100px\">" . $row["charity"] . "</td>
+					  <td style=\"vertical-align: middle; height:100px\"><button class=\"button blueberry hover-apple-core right\">Learn More</button></td>
+					  <td style=\"vertical-align: middle; height:100px\"><button class=\"button apricot hover-apple-core right\">Select</button></td>
+					</tr>";
+					}
+				} else {
+					echo "<tr>
+						<td style=\"vertical-align: middle; height:100px\">No charities, check back later!</td>
+						</tr>";
+				}
+				$conn->close();
+			  ?>
           </table>
         </div>
       </div>
@@ -135,24 +161,35 @@
         <h2 class="wide">GAMES</h2>
         <p class="opacity center"><i>Which one will you choose?</i></p><br>
         <table class="table-all white text-grey">
-          <tr>
-            <td style="vertical-align: middle; height:100px"><img src="./images/2048_logo_example.svg" style="max-width:267px; max-height:100px"></td>
-            <td style="vertical-align: middle; height:100px">2048</td>
-            <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
-            <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Play</button></td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle; height:100px"><img src="./images/Super_Tux_Kart_logo_example.png" style="max-width:267px; max-height:100px"></td>
-            <td style="vertical-align: middle; height:100px">Super Tux Kart</td>
-            <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
-            <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Play</button></td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle; height:100px"><img src="./images/xpilot_logo_example.png" style="max-width:267px; max-height:100px"></td>
-            <td style="vertical-align: middle; height:100px">XPilot</td>
-            <td style="vertical-align: middle; height:100px"><button class="button blueberry hover-apple-core right">Learn More</button></td>
-            <td style="vertical-align: middle; height:100px"><button class="button apricot hover-apple-core right">Play</button></td>
-          </tr>
+			<?php
+			  $servername = "localhost";
+			  $username = "root";
+			  $dbname = "playtogive_db";
+			  
+			  $conn = new mysqli($servername, $username, NULL, $dbname);
+			  if ($conn->connect_error){
+				  die("Connection failure - " . $conn->connect_error);
+			  }
+			  
+			  $sql = "SELECT * FROM games";
+			  $result = $conn->query($sql);
+			  
+			  if ($result->num_rows > 0) {
+				while($row = $result->fetch_assoc()) {
+					echo "<tr>
+						<td style=\"vertical-align: middle; height:100px\"><img src=./images/" . $row["picture"] . " style=\"max-width:267px; max-height:100px\"></td>
+						<td style=\"vertical-align: middle; height:100px\">". $row["game"] . "</td>
+						<td style=\"vertical-align: middle; height:100px\"><button class=\"button blueberry hover-apple-core right\">Learn More</button></td>
+						<td style=\"vertical-align: middle; height:100px\"><button class=\"button apricot hover-apple-core right\">Play</button></td>
+					  </tr>";
+					}
+				} else {
+					echo "<tr>
+						<td style=\"vertical-align: middle; height:100px\">No games, check back later!</td>
+						</tr>";
+				}
+				$conn->close();
+			?>
         </table>
       </div>
 
