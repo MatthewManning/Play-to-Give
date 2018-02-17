@@ -1,7 +1,7 @@
 {
-  "name": "assignment6",
+  "name": "play-to-give",
   "version": "1.0.0",
-  "description": "Assignment 6",
+  "description": "play to give",
   "main": "/src/server/index.js",
   "engines": {
     "node": "6.11.2",
@@ -51,6 +51,6 @@
     "test": "mocha --recursive",
     "start": "node ./src/server/index.js"
   },
-  "author": "G. Hemingway",
+  "author": "gawel",
   "license": "ISC"
 }

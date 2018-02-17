@@ -8,7 +8,7 @@ let path            = require('path'),
     mongoose        = require('mongoose');
 
 mongoose.Promise = global.Promise;
-let port = process.env.PORT ? process.env.PORT : 8080;
+let port = process.env.PORT ? process.env.PORT : 9000;
 let env = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
 
 let app = express();
@@ -19,7 +19,7 @@ app.set('views', __dirname);
 
 app.use(session({
     name: 'session',
-    secret: 'secretlbw',
+    secret: 'secretplaytogive',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -36,7 +36,7 @@ let options = {
     useMongoClient: true
 };
 
-mongoose.connect('mongodb://192.168.99.100:32768/lbw', options)
+mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.mlab.com:21192/heroku_zddqcgjh', options)
 //mongoose.connect('mongodb://127.0.0.1:27017', options)
     .then(() => {
         console.log('\t MongoDB connected');
@@ -66,5 +66,5 @@ mongoose.connect('mongodb://192.168.99.100:32768/lbw', options)
 
 
 let server = app.listen(port, () => {
-    console.log('Love In A Big World app listening on ' + server.address().port);
+    console.log('Play to give listening on port ' + server.address().port);
 });
