@@ -1259,7 +1259,22 @@ const Landing = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElemen
 class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 	constructor(props) {
 		super(props);
+		this.loginClick = this.loginClick.bind(this);
+		this.modalClick = this.modalClick.bind(this);
 	}
+
+	loginClick(ev) {
+		ev.preventDefault();
+		let loginModal = document.getElementById('loginModal');
+		loginModal.style.display = 'block';
+	}
+
+	modalClick(ev) {
+		ev.preventDefault();
+		let loginModal = document.getElementById('loginModal');
+		loginModal.style.display = 'none';
+	}
+
 	render() {
 		//const user = this.props.user.getUser();
 		const img_source = "/images/d-pad_example.png";
@@ -1300,6 +1315,76 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
 					{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
 					'CONTACT'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'button',
+					{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.loginClick },
+					'login / sign up'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ id: 'loginModal', className: 'modal' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'modal-content animate-top card-4' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'header',
+							{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'span',
+								{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
+								'\xD7'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'h2',
+								{ className: 'wide' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
+								'Login'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'form',
+							{ id: 'loginModalForm', className: 'container text-dark-grey' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'label',
+									{ htmlFor: 'username' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user' }),
+									' Username'
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'username', type: 'text', placeholder: 'Enter Username or Email Address' }),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'label',
+									{ htmlFor: 'password' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-key' }),
+									' Password'
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'button',
+								{ className: 'button block blueberry hover-apple-core padding-16 section right' },
+								'LOGIN ',
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'p',
+								{ className: 'left' },
+								'Not a member? ',
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+									{ to: './register', className: 'text-blue' },
+									'Sign Up'
+								)
+							)
+						)
+					)
 				)
 			)
 		);
@@ -1350,7 +1435,7 @@ exports = module.exports = __webpack_require__(235)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#loginModalHeader {\r\n    width: 100%;\r\n}\r\n\r\n#loginModalForm {\r\n    width: 100%;\r\n}", ""]);
 
 // exports
 
