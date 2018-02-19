@@ -1416,6 +1416,11 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
         //  this.onSubmit = this.onSubmit.bind(this);
     }
 
+    componentDidMount() {
+        let loginModal = document.getElementById('loginModal');
+        loginModal.style.display = 'none';
+    }
+
     render() {
         const contentStyle = {
             width: '2000px'
