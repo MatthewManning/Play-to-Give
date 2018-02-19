@@ -5,7 +5,8 @@ import React, { Component } from 'react';
 import { render } 			from 'react-dom';
 import { BrowserRouter, Route, Redirect} from 'react-router-dom';
 import Landing				from './components/landing';
-import Header               from './components/header'
+import Header               from './components/header';
+import Register             from './components/register';
 
 import './app.css'
 
@@ -23,6 +24,7 @@ class App extends Component {
             <div>
                 <Header user={this.user}/>
                 <Route exact path="/" render={props => <Landing user={this.user}/>}/>
+                <Route path="/register" component={Register}/>
             </div>
         </BrowserRouter>;
 
