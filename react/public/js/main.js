@@ -185,7 +185,7 @@ Link.contextTypes = {
 
 /***/ }),
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -195,9 +195,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_landing__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_header__ = __webpack_require__(232);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_css__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_landing__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_header__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_css__ = __webpack_require__(234);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__app_css__);
 
 
@@ -223,7 +223,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                 'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_header__["a" /* default */], { user: this.user }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_3__components_landing__["a" /* default */] })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/', render: props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_landing__["a" /* default */], { user: this.user }) })
             )
         );
     }
@@ -278,7 +278,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
 
 /***/ }),
 
-/***/ 210:
+/***/ 211:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -288,7 +288,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1_react_dom__["render"])(__WEBPACK_IMPORTED_MOD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(61);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -346,7 +346,7 @@ BrowserRouter.propTypes = {
 
 /***/ }),
 
-/***/ 212:
+/***/ 213:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -660,7 +660,7 @@ exports.default = createBrowserHistory;
 
 /***/ }),
 
-/***/ 213:
+/***/ 214:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -670,7 +670,7 @@ exports.default = createBrowserHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(215);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(61);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -727,7 +727,7 @@ HashRouter.propTypes = {
 
 /***/ }),
 
-/***/ 214:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1058,7 +1058,7 @@ exports.default = createHashHistory;
 
 /***/ }),
 
-/***/ 215:
+/***/ 216:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1070,7 +1070,7 @@ exports.default = createHashHistory;
 
 /***/ }),
 
-/***/ 217:
+/***/ 218:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1152,7 +1152,7 @@ NavLink.defaultProps = {
 
 /***/ }),
 
-/***/ 220:
+/***/ 221:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1164,7 +1164,7 @@ NavLink.defaultProps = {
 
 /***/ }),
 
-/***/ 221:
+/***/ 222:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1176,7 +1176,7 @@ NavLink.defaultProps = {
 
 /***/ }),
 
-/***/ 226:
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1188,7 +1188,7 @@ NavLink.defaultProps = {
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1200,7 +1200,7 @@ NavLink.defaultProps = {
 
 /***/ }),
 
-/***/ 228:
+/***/ 229:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1212,7 +1212,7 @@ NavLink.defaultProps = {
 
 /***/ }),
 
-/***/ 229:
+/***/ 230:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1224,27 +1224,237 @@ NavLink.defaultProps = {
 
 /***/ }),
 
-/***/ 231:
+/***/ 232:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 
 
 
 
-const Landing = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'div',
-    null,
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', null)
-);
+class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+	constructor(props) {
+		super(props);
+		this.state = { slideshow: {} };
+	}
+
+	componentDidMount() {
+		/*$.ajax({
+  	url: 'php/slideshow.php',
+  	type: "GET",
+  	dataType: "json",
+  	success: function(data) {
+  		console.log('Success');
+  		console.log(data);
+  		this.setState({slideshow: data});
+  	}.bind(this),
+  	error: function(xhr, status, err) {
+  		console.log('Error');
+  		console.log(err);
+  	}.bind(this)
+  });*/
+
+		$.ajax({
+			url: 'php/slideshow.php',
+			method: "get"
+		}).then(data => {
+			this.setState({ slideshow: data });
+		}).fail(err => {
+			console.log('error');
+		});
+	}
+
+	render() {
+		const page_html = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'content', style: { maxWidth: '2000px', marginTop: '46px' } },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container content center padding-64', style: { maxWidth: '800px' }, id: 'events' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h2',
+					{ className: 'wide' },
+					'EVENTS'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					{ className: 'opacity center' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'i',
+						null,
+						'Find one near you!'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('table', { style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'blueberry', id: 'charities' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'container content padding-64', style: { maxWidth: '90%' } },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h2',
+						{ className: 'wide center' },
+						'CHARITIES'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'opacity center' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'i',
+							null,
+							'Contribute to one of these great organizations!'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('table', { className: 'table-all white text-grey' })
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container content center padding-64', style: { maxWidth: '800px' }, id: 'games' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h2',
+					{ className: 'wide' },
+					'GAMES'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					{ className: 'opacity center' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'i',
+						null,
+						'Which one will you choose?'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('table', { className: 'table-all white text-grey' })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'blueberry', id: 'about' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'container content padding-64', style: { maxWidth: '800px' } },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h2',
+						{ className: 'wide center' },
+						'ABOUT US'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'opacity center' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'i',
+							null,
+							'This is who we are.'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'center padding-16' },
+						'Play to Give is a not-for-profit whose goal is to provide players with a fun gaming experience that also makes a positive impact on the world. How does this work? Well, we host a variety of games for players to enjoy for a small fee which is put into a pot. When players sign up, they must pay their fee and register to support the charity of their choice.  Then, at the end of the day, the players who have the highest scores each receive a portion of the total pot to go to the charity that they championed.'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'center' },
+						'Pretty cool, huh?'
+					)
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container content padding-64', style: { maxWidth: '800px' }, id: 'contact' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h2',
+					{ className: 'wide center' },
+					'CONTACT'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					{ className: 'opacity center' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'i',
+						null,
+						'Question? Comment? Here\'s how to let us know'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row padding-32' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col m6 large margin-bottom' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-map-marker', style: { width: '30px' } }),
+						' Nashville, TN, USA',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-phone', style: { width: '30px' } }),
+						' Phone: +1-800-867-5309',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'i',
+							{ className: 'fa fa-envelope', style: { width: '30px' } },
+							' '
+						),
+						' Email: playtogive@gmail.com',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col m6' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'form',
+							{ action: './mail.php', target: '_blank' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'row-padding', style: { margin: '0 -16px 8px -16px' } },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'half' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', type: 'text', placeholder: 'Name', required: true, name: 'Name' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'div',
+									{ className: 'half' },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', type: 'text', placeholder: 'Email', required: true, name: 'Email' })
+								)
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', type: 'text', placeholder: 'Message', required: true, name: 'Message' }),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'button',
+								{ className: 'button blueberry section right', type: 'submit' },
+								'SEND'
+							)
+						)
+					)
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'footer',
+				{ className: 'container padding-64 center opacity light-grey xlarge' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-facebook-official hover-opacity' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-instagram hover-opacity' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-snapchat hover-opacity' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-pinterest-p hover-opacity' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-twitter hover-opacity' }),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-linkedin hover-opacity' })
+			)
+		);
+
+		return page_html;
+	}
+}
 
 /* harmony default export */ __webpack_exports__["a"] = (Landing);
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(110)))
 
 /***/ }),
 
-/***/ 232:
+/***/ 233:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1395,13 +1605,13 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
 /***/ }),
 
-/***/ 233:
+/***/ 234:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(234);
+var content = __webpack_require__(235);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1409,7 +1619,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(236)(content, options);
+var update = __webpack_require__(237)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1427,10 +1637,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 234:
+/***/ 235:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(235)(false);
+exports = module.exports = __webpack_require__(236)(false);
 // imports
 
 
@@ -1442,7 +1652,7 @@ exports.push([module.i, "#loginModalHeader {\r\n    width: 100%;\r\n}\r\n\r\n#lo
 
 /***/ }),
 
-/***/ 235:
+/***/ 236:
 /***/ (function(module, exports) {
 
 /*
@@ -1525,7 +1735,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 236:
+/***/ 237:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1571,7 +1781,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(237);
+var	fixUrls = __webpack_require__(238);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -1885,7 +2095,7 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 
-/***/ 237:
+/***/ 238:
 /***/ (function(module, exports) {
 
 
@@ -1997,31 +2207,31 @@ module.exports = function (css) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(211);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(214);
 /* unused harmony reexport HashRouter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(101);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(216);
 /* unused harmony reexport MemoryRouter */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(218);
 /* unused harmony reexport NavLink */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(221);
 /* unused harmony reexport Prompt */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(222);
 /* unused harmony reexport Redirect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(103);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(61);
 /* unused harmony reexport Router */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(227);
 /* unused harmony reexport StaticRouter */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(228);
 /* unused harmony reexport Switch */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(229);
 /* unused harmony reexport matchPath */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(230);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
 
 
@@ -2052,5 +2262,5 @@ module.exports = function (css) {
 
 /***/ })
 
-},[110]);
+},[111]);
 //# sourceMappingURL=main.map

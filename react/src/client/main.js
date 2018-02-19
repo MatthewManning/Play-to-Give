@@ -10,8 +10,6 @@ import Header               from './components/header'
 import './app.css'
 
 
-
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +22,7 @@ class App extends Component {
         return <BrowserRouter>
             <div>
                 <Header user={this.user}/>
-                <Route exact path="/" component={Landing}/>
+                <Route exact path="/" render={props => <Landing user={this.user}/>}/>
             </div>
         </BrowserRouter>;
 
