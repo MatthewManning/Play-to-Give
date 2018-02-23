@@ -211,7 +211,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
 class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     constructor(props) {
         super(props);
@@ -1536,7 +1535,6 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					{ className: 'modal-content animate-top card-4' },
-<<<<<<< HEAD
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'header',
 						{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
@@ -1556,27 +1554,6 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 						'form',
 						{ id: 'loginModalForm', className: 'container text-dark-grey' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-=======
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'header',
-						{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'span',
-							{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
-							'\xD7'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h2',
-							{ className: 'wide' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
-							'Login'
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'form',
-						{ id: 'loginModalForm', className: 'container text-dark-grey' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
->>>>>>> 5500b9b0db5a11065c5f4feb7e15a94f9180b4fa
 							'p',
 							null,
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1598,7 +1575,6 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 							)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
-<<<<<<< HEAD
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 							'button',
 							{ className: 'button block blueberry hover-apple-core padding-16 section right' },
@@ -1606,15 +1582,6 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-=======
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'button',
-							{ className: 'button block blueberry hover-apple-core padding-16 section right' },
-							'LOGIN ',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
->>>>>>> 5500b9b0db5a11065c5f4feb7e15a94f9180b4fa
 							'p',
 							{ className: 'left' },
 							'Not a member? ',
