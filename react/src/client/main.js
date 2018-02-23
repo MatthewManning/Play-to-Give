@@ -1,4 +1,3 @@
-
 "use strict";
 
 import React, { Component } from 'react';
@@ -9,8 +8,6 @@ import Header               from './components/header';
 import Register             from './components/register';
 
 import './app.css'
-
-
 
 
 class App extends Component {
@@ -25,7 +22,7 @@ class App extends Component {
         return <BrowserRouter>
             <div>
                 <Header user={this.user}/>
-                <Route exact path="/" component={Landing}/>
+                <Route exact path="/" render={props => <Landing user={this.user}/>}/>
                 <Route path="/register" component={Register}/>
             </div>
         </BrowserRouter>;
