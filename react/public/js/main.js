@@ -1279,117 +1279,222 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 	}
 
 	render() {
-		//const user = this.props.user.getUser();
 		const img_source = "/images/d-pad_example.png";
-
-		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			'div',
-			{ className: 'top' },
+		const user = this.props.user.getUser();
+		const header = user.username !== '' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'nav',
+			{ className: 'bar blueberry card' },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'nav',
-				{ className: 'bar blueberry card' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-					{ to: '/', className: 'bar-item button hover-apple-core padding-large' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { style: { height: '25px' }, src: img_source }),
-					' PLAY TO GIVE'
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-					{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
-					'EVENTS'
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-					{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
-					'CHARITIES'
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-					{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
-					'GAMES'
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-					{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
-					'ABOUT US'
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-					{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
-					'CONTACT'
-				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'button',
-					{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.loginClick },
-					'login / sign up'
-				),
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { style: { height: '25px' }, src: img_source }),
+				' PLAY TO GIVE'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'EVENTS'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'CHARITIES'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'GAMES'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'ABOUT US'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'CONTACT'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'button',
+				{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.loginClick },
+				'login / sign up'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ id: 'loginModal', className: 'modal' },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
-					{ id: 'loginModal', className: 'modal' },
+					{ className: 'modal-content animate-top card-4' },
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'div',
-						{ className: 'modal-content animate-top card-4' },
+						'header',
+						{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'header',
-							{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'span',
-								{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
-								'\xD7'
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'h2',
-								{ className: 'wide' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
-								'Login'
-							)
+							'span',
+							{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
+							'\xD7'
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'form',
-							{ id: 'loginModalForm', className: 'container text-dark-grey' },
+							'h2',
+							{ className: 'wide' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
+							'Login'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'form',
+						{ id: 'loginModalForm', className: 'container text-dark-grey' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							null,
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								null,
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'label',
-									{ htmlFor: 'username' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user' }),
-									' Username'
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'username', type: 'text', placeholder: 'Enter Username or Email Address' }),
+								'label',
+								{ htmlFor: 'username' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user' }),
+								' Username'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'username', type: 'text', placeholder: 'Enter Username or Email Address' }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							null,
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								null,
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									'label',
-									{ htmlFor: 'password' },
-									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-key' }),
-									' Password'
-								)
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
+								'label',
+								{ htmlFor: 'password' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-key' }),
+								' Password'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'button',
+							{ className: 'button block blueberry hover-apple-core padding-16 section right' },
+							'LOGIN ',
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							{ className: 'left' },
+							'Not a member? ',
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'button',
-								{ className: 'button block blueberry hover-apple-core padding-16 section right' },
-								'LOGIN ',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
-							),
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'p',
-								{ className: 'left' },
-								'Not a member? ',
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-									__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-									{ to: './register', className: 'text-blue' },
-									'Sign Up'
-								)
+								__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+								{ to: './register', className: 'text-blue' },
+								'Sign Up'
 							)
 						)
 					)
 				)
 			)
+		) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'nav',
+			{ className: 'bar blueberry card' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { style: { height: '25px' }, src: img_source }),
+				' PLAY TO GIVE'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'EVENTS'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'CHARITIES'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'GAMES'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'ABOUT US'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'CONTACT'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'button',
+				{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.loginClick },
+				'login / sign up'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ id: 'loginModal', className: 'modal' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'modal-content animate-top card-4' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'header',
+						{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'span',
+							{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
+							'\xD7'
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'h2',
+							{ className: 'wide' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
+							'Login'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'form',
+						{ id: 'loginModalForm', className: 'container text-dark-grey' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'label',
+								{ htmlFor: 'username' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user' }),
+								' Username'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'username', type: 'text', placeholder: 'Enter Username or Email Address' }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							null,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'label',
+								{ htmlFor: 'password' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-key' }),
+								' Password'
+							)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'button',
+							{ className: 'button block blueberry hover-apple-core padding-16 section right' },
+							'LOGIN ',
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'p',
+							{ className: 'left' },
+							'Not a member? ',
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+								{ to: './register', className: 'text-blue' },
+								'Sign Up'
+							)
+						)
+					)
+				)
+			)
+		);
+
+		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'top' },
+			header
 		);
 	}
 }

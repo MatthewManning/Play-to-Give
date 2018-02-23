@@ -5,9 +5,8 @@ let path            = require('path'),
     bodyParser      = require('body-parser'),
     logger          = require('morgan'),
     session         = require('express-session'),
-    mongoose        = require('mongoose');
+    mysql           = require('mysql');
 
-mongoose.Promise = global.Promise;
 let port = process.env.PORT ? process.env.PORT : 9000;
 let env = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
 
@@ -32,37 +31,35 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let options = {
-    useMongoClient: true
-};
-
-mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.mlab.com:21192/heroku_zddqcgjh', options)
-//mongoose.connect('mongodb://127.0.0.1:27017', options)
-    .then(() => {
-        console.log('\t MongoDB connected');
-
-        // Import our Data
-        app.models = {
-
-        };
-
-        // Import our API Routes
 
 
-        // Give them the SPA base page
-        app.get('*', (req, res) => {
-            let preloadedState = req.session.user ? {
-                username: req.session.user.username,
-                primary_email: req.session.user.primary_email
-            } : {};
-            preloadedState = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
-            res.render('base.pug', {
-                state: preloadedState
-            });
-        });
-    }, err => {
-        console.log(err);
+let connection = mysql.createConnection({
+    host    : 'localhost',
+    user    : 'root',
+    password: '',
+    database: 'playtogive_db'
+});
+connection.connect()
+
+console.log('\t MySQL connected');
+
+// Import our Data
+
+
+// Import our API Routes
+
+
+// Give them the SPA base page
+app.get('*', (req, res) => {
+    let preloadedState = req.session.user ? {
+        username: req.session.user.username,
+        primary_email: req.session.user.primary_email
+    } : {};
+    preloadedState = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+    res.render('base.pug', {
+        state: preloadedState
     });
+});
 
 
 let server = app.listen(port, () => {
