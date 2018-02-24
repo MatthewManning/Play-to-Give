@@ -5,8 +5,9 @@ let path            = require('path'),
     bodyParser      = require('body-parser'),
     logger          = require('morgan'),
     session         = require('express-session'),
-    mysql           = require('mysql');
+    mongoose        = require('mongoose');
 
+mongoose.Promise = global.Promise;
 let port = process.env.PORT ? process.env.PORT : 9000;
 let env = process.env.NODE_ENV ? process.env.NODE_ENV : 'dev';
 
@@ -31,39 +32,38 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let options = {
+    useMongoClient: true
+};
 
+mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.mlab.com:21192/heroku_zddqcgjh', options)
+    .then(() => {
+        console.log('\t MongoDB connected');
 
-let connection = mysql.createConnection({
-    host    : 'localhost',
-    user    : 'root',
-    password: '',
-    database: 'playtogive_db'
-});
-connection.connect();
+        // Import our Data Models
+        app.models = {
+            Event: require('./models/event')
+        };
 
-connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-    if (err) throw err;
-});
+        // Import our API Routes
+        require('./api/v1/charities')(app);
+        require('./api/v1/events')(app);
+        require('./api/v1/games')(app);
 
-console.log('\t MySQL connected');
-
-// Import our Data
-
-
-// Import our API Routes
-
-
-// Give them the SPA base page
-app.get('*', (req, res) => {
-    let preloadedState = req.session.user ? {
-        username: req.session.user.username,
-        primary_email: req.session.user.primary_email
-    } : {};
-    preloadedState = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
-    res.render('base.pug', {
-        state: preloadedState
+        // Give them the SPA base page
+        app.get('*', (req, res) => {
+            let preloadedState = req.session.user ? {
+                username: req.session.user.username,
+                primary_email: req.session.user.primary_email
+            } : {};
+            preloadedState = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+            res.render('base.pug', {
+                state: preloadedState
+            });
+        });
+    }, err => {
+        console.log(err);
     });
-});
 
 
 let server = app.listen(port, () => {

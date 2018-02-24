@@ -1266,6 +1266,15 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 		}).fail(err => {
 			console.log('error');
 		});
+
+		$.ajax({
+			url: '/v1/events',
+			method: 'get'
+		}).then(() => {
+			console.log('test');
+		}).fail(err => {
+			console.log(err);
+		});
 	}
 
 	render() {

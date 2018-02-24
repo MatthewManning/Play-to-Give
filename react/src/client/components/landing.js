@@ -34,6 +34,17 @@ class Landing extends Component {
             .fail(err => {
                 console.log('error');
             });
+
+		$.ajax({
+			url: '/v1/events',
+			method: 'get',
+		})
+			.then(() => {
+				console.log('test')
+			})
+			.fail(err => {
+				console.log(err)
+			});
 	}
 	
 	render() {
