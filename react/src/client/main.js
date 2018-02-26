@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Redirect} from 'react-router-dom';
 import Landing				from './components/landing';
 import Header               from './components/header';
 import Register             from './components/register';
+import Events 				from './components/events';
 
 import './app.css'
 
@@ -24,6 +25,7 @@ class App extends Component {
                 <Header user={this.user}/>
                 <Route exact path="/" render={props => <Landing user={this.user}/>}/>
                 <Route path="/register" component={Register}/>
+				<Route path="/events" component={Events}/>
             </div>
         </BrowserRouter>;
 
