@@ -1236,10 +1236,31 @@ NavLink.defaultProps = {
 
 
 
+const Event = ({ event, index }) => {
+	return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		'tr',
+		{ key: index },
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'td',
+			{ style: { verticalAlign: 'middle', height: '50px' } },
+			event.location
+		),
+		__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'td',
+			{ style: { verticalAlign: 'middle', height: '50px' } },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'button',
+				{ className: 'button apricot hover-apple-core right', style: { width: '70%' } },
+				event.date
+			)
+		)
+	);
+};
+
 class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 	constructor(props) {
 		super(props);
-		this.state = { slideshow: {} };
+		this.state = { events: [] };
 	}
 
 	componentDidMount() {
@@ -1258,26 +1279,30 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   	}.bind(this)
   });*/
 
-		$.ajax({
-			url: 'php/slideshow.php',
-			method: "get"
-		}).then(data => {
-			this.setState({ slideshow: data });
-		}).fail(err => {
-			console.log('error');
-		});
+		// $.ajax({
+		//     url: 'php/slideshow.php',
+		//     method: "get"
+		// })
+		//     .then(data => {
+		//         this.setState({slideshow: data});
+		//     })
+		//     .fail(err => {
+		//         console.log('error');
+		//     });
 
 		$.ajax({
 			url: '/v1/events',
 			method: 'get'
-		}).then(() => {
-			console.log('test');
+		}).then(data => {
+			console.log(data);
+			this.setState({ events: data });
 		}).fail(err => {
 			console.log(err);
 		});
 	}
 
 	render() {
+		let events = this.state.events.map((event, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Event, { key: index, event: event, index: index }));
 		const page_html = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			{ className: 'content', style: { maxWidth: '2000px', marginTop: '46px' } },
@@ -1298,7 +1323,15 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 						'Find one near you!'
 					)
 				),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('table', { style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' })
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'table',
+					{ style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'tbody',
+						null,
+						events
+					)
+				)
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',

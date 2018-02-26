@@ -2,10 +2,18 @@
 
 import React, { Component }			from 'react';
 
+
+const Event = ({ event, index}) => {
+	return <tr key={index}>
+		<td style={{verticalAlign: 'middle', height:'50px'}}>{event.location}</td>
+		<td style={{verticalAlign: 'middle', height:'50px'}}><button className='button apricot hover-apple-core right' style={{width:'70%'}}>{event.date}</button></td>
+	</tr>
+};
+
 class Landing extends Component {
 	constructor(props) {
         super(props);
-        this.state = { slideshow: {} };
+        this.state = { slideshow: {}, events: [] };
     }
 	
 	componentDidMount(){
@@ -39,8 +47,9 @@ class Landing extends Component {
 			url: '/v1/events',
 			method: 'get',
 		})
-			.then(() => {
-				console.log('test')
+			.then((data) => {
+				console.log(data);
+				this.setState({events: data});
 			})
 			.fail(err => {
 				console.log(err)
@@ -48,13 +57,16 @@ class Landing extends Component {
 	}
 	
 	render() {
+		let events = this.state.events.map((event, index) => (
+			<Event key={index} event = {event} index = {index}/>
+		));
         const page_html = <div className="content" style={{maxWidth:'2000px', marginTop:'46px'}}>
 
 			  <div className="container content center padding-64" style={{maxWidth:'800px'}} id="events">
 				<h2 className="wide">EVENTS</h2>
 				<p className="opacity center"><i>Find one near you!</i></p>
 				<table style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
-
+					<tbody>{events}</tbody>
 				</table>
 			  </div>
 				
