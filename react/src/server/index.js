@@ -36,8 +36,8 @@ let options = {
     useMongoClient: true
 };
 
-//mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.mlab.com:21192/heroku_zddqcgjh', options)
-mongoose.connect('mongodb://127.0.0.1:27017', options)
+mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.mlab.com:21192/heroku_zddqcgjh', options)
+//mongoose.connect('mongodb://127.0.0.1:27017', options)
     .then(() => {
         console.log('\t MongoDB connected');
 

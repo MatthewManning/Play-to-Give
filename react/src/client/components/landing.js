@@ -3,10 +3,18 @@
 import React, { Component }			from 'react';
 import Slider					    from 'react-slick';
 
+
+const Event = ({ event, index}) => {
+	return <tr key={index}>
+		<td style={{verticalAlign: 'middle', height:'50px'}}>{event.location}</td>
+		<td style={{verticalAlign: 'middle', height:'50px'}}><button className='button apricot hover-apple-core right' style={{width:'70%'}}>{event.date}</button></td>
+	</tr>
+};
+
 class Landing extends Component {
 	constructor(props) {
         super(props);
-        this.state = { events: {}, slides: {} };
+        this.state = { events: {}, charities: {}, games: {}};
 		
 		this.dateFormat = this.dateFormat.bind(this);
     }
@@ -17,6 +25,7 @@ class Landing extends Component {
 			url: `/v1/events`,
 			method: "get",
 		})
+
 			.then(data => {
 				console.log('test');
 				console.log(data.events);
@@ -77,6 +86,7 @@ class Landing extends Component {
 			  <div className="container content center padding-64" style={{maxWidth:'800px'}} id="events">
 				<h2 className="wide">EVENTS</h2>
 				<p className="opacity center"><i>Find one near you!</i></p>
+
 				<thead style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
 					{event_list}
 				</thead>
