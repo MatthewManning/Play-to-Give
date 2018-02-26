@@ -1574,9 +1574,18 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 			url: `/v1/events`,
 			method: "get"
 		}).then(data => {
-			console.log('test');
 			console.log(data.events);
 			this.setState({ events: data.events });
+		}).fail(err => {
+			console.log(err.error);
+		});
+
+		$.ajax({
+			url: `/v1/charities`,
+			method: "get"
+		}).then(data => {
+			console.log(data.charities);
+			this.setState({ charities: data.charities });
 		}).fail(err => {
 			console.log(err.error);
 		});
@@ -1602,21 +1611,20 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 	}
 
 	render() {
+
 		const settings = {
-			speed: 5000,
+			speed: 3000,
 			autoplay: true,
 			infinite: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			centerMode: true,
 			pauseOnHover: false
-		};
-		let slides_list = this.state.slides.length > 0 ? this.state.slides : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-			'div',
-			null,
-			'No Images'
-		);
-		let event_list = this.state.events.length > 0 ? this.state.events.map((e, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+
+			//let slides_list = this.state.slides.length > 0 ?
+			//	this.state.slides : <div>No Images</div>;
+
+		};let event_list = this.state.events.length > 0 ? this.state.events.map((e, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'tr',
 			null,
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1642,6 +1650,48 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				'No events'
 			)
 		);
+
+		let charity_list = this.state.charities.length > 0 ? this.state.charities.map((c, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'tr',
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', textAlign: 'center', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { style: { maxWidth: '60%', minWidth: '30%', maxHeight: '100px' }, src: c.picture })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				c.charity_name
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'button',
+					{ className: 'button blueberry hover-apple-core right' },
+					'Learn More'
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'button',
+					{ className: 'button apricot hover-apple-core right' },
+					'Select'
+				)
+			)
+		)) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'tr',
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				'No charities'
+			)
+		);
+
 		const page_html = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			{ className: 'content', style: { maxWidth: '2000px', marginTop: '46px' } },
@@ -1710,7 +1760,11 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 						)
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('table', { className: 'table-all white text-grey' })
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'thead',
+						{ style: { width: '60%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+						charity_list
+					)
 				)
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -4141,6 +4195,7 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 		constructor(props) {
 				super(props);
 				this.createEvent = this.createEvent.bind(this);
+				this.createCharity = this.createCharity.bind(this);
 		}
 
 		createEvent() {
@@ -4167,66 +4222,143 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				});
 		}
 
+		createCharity() {
+				const data = {
+						charity_name: document.getElementById('charity_name').value,
+						picture: document.getElementById('picture').value,
+						summary: document.getElementById('summary').value,
+						paypal: document.getElementById('pay-pal').value
+				};
+
+				$.ajax({
+						url: `/v1/charities`,
+						method: "post",
+						data: data
+				}).then(data => {
+						console.log("posted");
+						document.getElementById('charity_name').value = ""; // empty input boxes
+						document.getElementById('picture').value = "";
+						document.getElementById('summary').value = "";
+						document.getElementById('pay-pal').value = "";
+				}).fail(err => {
+						console.log("post failed");
+						console.log(err.error);
+				});
+		}
+
 		render() {
 				const page_html = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',
 						{ className: 'content', style: { maxWidth: '2000px', marginTop: '46px' } },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { id: 'errorMsg', className: 'bg-danger' }),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'form-group' },
+								null,
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'label',
-										null,
-										'Event ID'
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Event ID'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'event_id', type: 'text' })
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'event_id', type: 'text' })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Event Name'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'event_name', type: 'text' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Event Location'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'location', type: 'text' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Event Date'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'date', type: 'date' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Event Time'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'time', type: 'time' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'button',
+										{ className: 'btn btn-primary', onClick: this.createEvent },
+										'Create Event'
+								)
 						),
 						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								'div',
-								{ className: 'form-group' },
+								null,
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'label',
-										null,
-										'Event Name'
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Charity Name'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'charity_name', type: 'text' })
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'event_name', type: 'text' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'form-group' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'label',
-										null,
-										'Event Location'
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Charity Picture'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'picture', type: 'text' })
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'location', type: 'text' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'form-group' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'label',
-										null,
-										'Event Date'
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Charity Summary'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'summary', type: 'text' })
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'date', type: 'date' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'div',
-								{ className: 'form-group' },
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-										'label',
-										null,
-										'Event Time'
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Charity PayPal'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'pay-pal', type: 'text' })
 								),
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'time', type: 'time' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'button',
-								{ className: 'btn btn-primary', onClick: this.createEvent },
-								'Create Event'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { id: 'errorMsg', className: 'bg-danger' })
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'button',
+										{ className: 'btn btn-primary', onClick: this.createCharity },
+										'Create Charity'
+								)
+						)
 				);
 				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'div',

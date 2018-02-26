@@ -43,7 +43,8 @@ mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.
 
         // Import our Data Models
         app.models = {
-            Event: require('./models/event')
+            Event: require('./models/event'),
+			Charity: require('./models/charities')
         };
 
         // Import our API Routes
