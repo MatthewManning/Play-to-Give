@@ -14,7 +14,7 @@ class Landing extends Component {
 	constructor(props) {
         super(props);
 
-        this.state = { events: {} };
+        this.state = { events: {},  charities: {}, games: {}};
 		
 		this.dateFormat = this.dateFormat.bind(this);
     }
