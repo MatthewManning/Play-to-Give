@@ -47,6 +47,19 @@ class Landing extends Component {
 				console.log(err.error);
 			});
 			
+		$.ajax({
+			url: `/v1/games`,
+			method: "get",
+		})
+
+			.then(data => {
+				console.log(data.games);
+				this.setState({games: data.games});
+			})
+			.fail(err => {
+				console.log(err.error);
+			});
+			
 		/*$.ajax({
 			url : `/images/slideshow/`
 		})
@@ -100,6 +113,17 @@ class Landing extends Component {
 					</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No charities</td></tr>;
 			
+		let game_list = this.state.games.length > 0 ? 
+			this.state.games.map((g, index) => (
+			<tr>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><img src={g.picture} style={{maxWidth:'267px', maxHeight:'100px'}}/></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}>{g.game_name}</td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right">Play</button></td>
+			 </tr>
+			)):
+			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No games</td></tr>;
+			
         const page_html = <div className="content" style={{maxWidth:'2000px', marginTop:'46px'}}>
 			  <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 			  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
@@ -112,7 +136,7 @@ class Landing extends Component {
 				<h2 className="wide">EVENTS</h2>
 				<p className="opacity center"><i>Find one near you!</i></p>
 				<thead style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
-					{event_list}
+				  {event_list}
 				</thead>
 			  </div>
 				
@@ -129,9 +153,9 @@ class Landing extends Component {
 			  <div className="container content center padding-64" style={{maxWidth:'800px'}} id="games">
 				<h2 className="wide">GAMES</h2>
 				<p className="opacity center"><i>Which one will you choose?</i></p><br />
-				<table className="table-all white text-grey">
-					
-				</table>
+				<thead style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
+				  {game_list}
+				</thead>
 			  </div>
 
 			  <div className="blueberry" id="about">

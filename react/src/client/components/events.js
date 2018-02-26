@@ -8,6 +8,7 @@ class Events extends Component {
         super(props);
 		this.createEvent = this.createEvent.bind(this);
 		this.createCharity = this.createCharity.bind(this);
+		this.createGame = this.createGame.bind(this);
     }
 		
 	createEvent() {
@@ -39,8 +40,8 @@ class Events extends Component {
 	createCharity() {
         const data = {
 			charity_name:    document.getElementById('charity_name').value,
-			picture:    	 document.getElementById('picture').value,
-			summary:         document.getElementById('summary').value,
+			picture:    	 document.getElementById('charity_picture').value,
+			summary:         document.getElementById('charity_summary').value,
 			paypal:         document.getElementById('pay-pal').value
         };
 
@@ -52,9 +53,33 @@ class Events extends Component {
             .then(data => {
                 console.log("posted");
 				document.getElementById('charity_name').value = "";	// empty input boxes
-				document.getElementById('picture').value = "";
-				document.getElementById('summary').value = "";
+				document.getElementById('charity_picture').value = "";
+				document.getElementById('charity_summary').value = "";
 				document.getElementById('pay-pal').value = "";
+            })
+            .fail(err => {
+				console.log("post failed");
+                console.log(err.error);
+            });
+	};
+			
+	createGame() {
+        const data = {
+			game_name:   document.getElementById('game_name').value,
+			picture:     document.getElementById('game_picture').value,
+			summary:     document.getElementById('game_summary').value
+        };
+
+        $.ajax({
+            url: `/v1/games`,
+            method: "post",
+            data: data
+        })
+            .then(data => {
+                console.log("posted");
+				document.getElementById('game_name').value = "";	// empty input boxes
+				document.getElementById('game_picture').value = "";
+				document.getElementById('game_summary').value = "";
             })
             .fail(err => {
 				console.log("post failed");
@@ -96,17 +121,32 @@ class Events extends Component {
 				</div>
 				<div className="form-group">
 						<label>Charity Picture</label>
-						<input className="form-control" id="picture" type="text"></input>
+						<input className="form-control" id="charity_picture" type="text"></input>
 				</div>
 				<div className="form-group">
 						<label>Charity Summary</label>
-						<input className="form-control" id="summary" type="text"></input>
+						<input className="form-control" id="charity_summary" type="text"></input>
 				</div>
 				<div className="form-group">
 						<label>Charity PayPal</label>
 						<input className="form-control" id="pay-pal" type="text"></input>
 				</div>
 				<button className="btn btn-primary" onClick={this.createCharity}>Create Charity</button>
+			</div>
+			<div>
+				<div className="form-group">
+						<label>Game Name</label>
+						<input className="form-control" id="game_name" type="text"></input>
+				</div>
+				<div className="form-group">
+						<label>Game Picture</label>
+						<input className="form-control" id="game_picture" type="text"></input>
+				</div>
+				<div className="form-group">
+						<label>Game Summary</label>
+						<input className="form-control" id="game_summary" type="text"></input>
+				</div>
+				<button className="btn btn-primary" onClick={this.createGame}>Create Game</button>
 			</div>
 		</div>
 		return <div>{page_html}</div>

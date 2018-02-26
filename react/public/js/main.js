@@ -1590,6 +1590,16 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 			console.log(err.error);
 		});
 
+		$.ajax({
+			url: `/v1/games`,
+			method: "get"
+		}).then(data => {
+			console.log(data.games);
+			this.setState({ games: data.games });
+		}).fail(err => {
+			console.log(err.error);
+		});
+
 		/*$.ajax({
   	url : `/images/slideshow/`
   })
@@ -1692,6 +1702,47 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 			)
 		);
 
+		let game_list = this.state.games.length > 0 ? this.state.games.map((g, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'tr',
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: g.picture, style: { maxWidth: '267px', maxHeight: '100px' } })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				g.game_name
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'button',
+					{ className: 'button blueberry hover-apple-core right' },
+					'Learn More'
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'button',
+					{ className: 'button apricot hover-apple-core right' },
+					'Play'
+				)
+			)
+		)) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'tr',
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				'No games'
+			)
+		);
+
 		const page_html = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			{ className: 'content', style: { maxWidth: '2000px', marginTop: '46px' } },
@@ -1785,7 +1836,11 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('table', { className: 'table-all white text-grey' })
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'thead',
+					{ style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+					game_list
+				)
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'div',
@@ -4196,6 +4251,7 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				super(props);
 				this.createEvent = this.createEvent.bind(this);
 				this.createCharity = this.createCharity.bind(this);
+				this.createGame = this.createGame.bind(this);
 		}
 
 		createEvent() {
@@ -4225,8 +4281,8 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 		createCharity() {
 				const data = {
 						charity_name: document.getElementById('charity_name').value,
-						picture: document.getElementById('picture').value,
-						summary: document.getElementById('summary').value,
+						picture: document.getElementById('charity_picture').value,
+						summary: document.getElementById('charity_summary').value,
 						paypal: document.getElementById('pay-pal').value
 				};
 
@@ -4237,9 +4293,31 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				}).then(data => {
 						console.log("posted");
 						document.getElementById('charity_name').value = ""; // empty input boxes
-						document.getElementById('picture').value = "";
-						document.getElementById('summary').value = "";
+						document.getElementById('charity_picture').value = "";
+						document.getElementById('charity_summary').value = "";
 						document.getElementById('pay-pal').value = "";
+				}).fail(err => {
+						console.log("post failed");
+						console.log(err.error);
+				});
+		}
+
+		createGame() {
+				const data = {
+						game_name: document.getElementById('game_name').value,
+						picture: document.getElementById('game_picture').value,
+						summary: document.getElementById('game_summary').value
+				};
+
+				$.ajax({
+						url: `/v1/games`,
+						method: "post",
+						data: data
+				}).then(data => {
+						console.log("posted");
+						document.getElementById('game_name').value = ""; // empty input boxes
+						document.getElementById('game_picture').value = "";
+						document.getElementById('game_summary').value = "";
 				}).fail(err => {
 						console.log("post failed");
 						console.log(err.error);
@@ -4331,7 +4409,7 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 												null,
 												'Charity Picture'
 										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'picture', type: 'text' })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'charity_picture', type: 'text' })
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
@@ -4341,7 +4419,7 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 												null,
 												'Charity Summary'
 										),
-										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'summary', type: 'text' })
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'charity_summary', type: 'text' })
 								),
 								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 										'div',
@@ -4357,6 +4435,45 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 										'button',
 										{ className: 'btn btn-primary', onClick: this.createCharity },
 										'Create Charity'
+								)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								null,
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Game Name'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'game_name', type: 'text' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Game Picture'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'game_picture', type: 'text' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+												'label',
+												null,
+												'Game Summary'
+										),
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'game_summary', type: 'text' })
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'button',
+										{ className: 'btn btn-primary', onClick: this.createGame },
+										'Create Game'
 								)
 						)
 				);
