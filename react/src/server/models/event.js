@@ -6,7 +6,7 @@ let Event = new Schema({
     'event_name':   { type: String, required: true, index: { unique: true } },
     'location':     { type: String, default: '' },
     'date':         { type: Date },
-    'time':         { type: Date}
+    'time':         { type: String}
 });
 
 module.exports = mongoose.model('Event', Event);
