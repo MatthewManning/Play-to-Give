@@ -67,8 +67,8 @@ class Landing extends Component {
 			centerMode: true,
 			pauseOnHover: false
 		}
-		let slides_list = this.state.slides.length > 0 ?
-			this.state.slides : <div>No Images</div>;
+		//let slides_list = this.state.slides.length > 0 ?
+		//	this.state.slides : <div>No Images</div>;
 		let event_list = this.state.events.length > 0 ? 
 			this.state.events.map((e, index) => (<tr>
 					<td style={{verticalAlign: 'middle', height:'50px'}}>{e.location}</td>
