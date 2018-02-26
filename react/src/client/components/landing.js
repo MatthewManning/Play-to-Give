@@ -1,11 +1,12 @@
 'use strict';
 
 import React, { Component }			from 'react';
+import Slider					    from 'react-slick';
 
 class Landing extends Component {
 	constructor(props) {
         super(props);
-        this.state = { events: {} };
+        this.state = { events: {}, slides: {} };
 		
 		this.dateFormat = this.dateFormat.bind(this);
     }
@@ -24,6 +25,21 @@ class Landing extends Component {
 			.fail(err => {
 				console.log(err.error);
 			});
+			
+		/*$.ajax({
+			url : `/images/slideshow/`
+		})
+			.then(data => {
+				$(data).find("a").attr("href", function (i, val) {
+					if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+						this.state.slides.concat("<div><img src='"+ folder + val +"'></div>");
+					} 
+				})
+			})
+			.fail(err => {
+				console.log("Image load failed");
+				console.log(err.error);
+			});*/
 	}
 	
 	dateFormat(d){
@@ -33,6 +49,17 @@ class Landing extends Component {
 	}
 
 	render() {
+		const settings = {
+			speed: 5000,
+			autoplay: true,
+			infinite: true,
+		    slidesToShow: 1,
+		    slidesToScroll: 1,
+			centerMode: true,
+			pauseOnHover: false
+		}
+		let slides_list = this.state.slides.length > 0 ?
+			this.state.slides : <div>No Images</div>;
 		let event_list = this.state.events.length > 0 ? 
 			this.state.events.map((e, index) => (<tr>
 					<td style={{verticalAlign: 'middle', height:'50px'}}>{e.location}</td>
@@ -40,7 +67,13 @@ class Landing extends Component {
 				</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'50px'}}>No events</td></tr>;
         const page_html = <div className="content" style={{maxWidth:'2000px', marginTop:'46px'}}>
-
+			  <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+			  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+			  <Slider style={{width:'100%'}} {...settings}>
+				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/just_monika_example.jpg"/></div>
+				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/rooster_teeth_example.jpg"/></div>
+				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/trevor_project_example.jpg"/></div>
+			  </Slider>
 			  <div className="container content center padding-64" style={{maxWidth:'800px'}} id="events">
 				<h2 className="wide">EVENTS</h2>
 				<p className="opacity center"><i>Find one near you!</i></p>
