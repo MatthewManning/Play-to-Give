@@ -45,13 +45,16 @@ mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.
         app.models = {
             Event: require('./models/event'),
 			Charity: require('./models/charities'),
-			Game: require('./models/games')
+			Game: require('./models/games'),
+            User: require('./models/users')
         };
 
         // Import our API Routes
         require('./api/v1/charities')(app);
         require('./api/v1/events')(app);
         require('./api/v1/games')(app);
+        require('./api/v1/user')(app);
+        require('./api/v1/session')(app);
 
         // Give them the SPA base page
         app.get('*', (req, res) => {

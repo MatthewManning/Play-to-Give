@@ -98,14 +98,14 @@ class Landing extends Component {
 		//	this.state.slides : <div>No Images</div>;
 		
 		let event_list = this.state.events.length > 0 ? 
-			this.state.events.map((e, index) => (<tr>
+			this.state.events.map((e, index) => (<tr key = {index}>
 					<td style={{verticalAlign: 'middle', height:'50px'}}>{e.location}</td>
 					<td style={{verticalAlign: 'middle', height:'50px'}}><button className="button apricot hover-apple-core right" style={{width:'70%'}}>{this.dateFormat(new Date(e.date))}</button></td>
 				</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'50px'}}>No events</td></tr>;
 			
 		let charity_list = this.state.charities.length > 0 ? 
-			this.state.charities.map((c, index) => (<tr>
+			this.state.charities.map((c, index) => (<tr key = {index}>
 					  <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={c.picture}/></td>
 					  <td style={{verticalAlign: 'middle', height:'100px'}}>{c.charity_name}</td>
 					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
@@ -115,7 +115,7 @@ class Landing extends Component {
 			
 		let game_list = this.state.games.length > 0 ? 
 			this.state.games.map((g, index) => (
-			<tr>
+			<tr key = {index}>
 				<td style={{verticalAlign: 'middle', height:'100px'}}><img src={g.picture} style={{maxWidth:'267px', maxHeight:'100px'}}/></td>
 				<td style={{verticalAlign: 'middle', height:'100px'}}>{g.game_name}</td>
 				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
@@ -125,7 +125,7 @@ class Landing extends Component {
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No games</td></tr>;
 			
         const page_html = <div className="content" style={{maxWidth:'2000px', marginTop:'46px'}}>
-			  <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+			  <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 			  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 			  <Slider style={{width:'100%'}} {...settings}>
 				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/just_monika_example.jpg"/></div>
@@ -135,27 +135,33 @@ class Landing extends Component {
 			  <div className="container content center padding-64" style={{maxWidth:'800px'}} id="events">
 				<h2 className="wide">EVENTS</h2>
 				<p className="opacity center"><i>Find one near you!</i></p>
-				<thead style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
-				  {event_list}
-				</thead>
+				  <table style={{margin: 'auto'}} className = 'col-xs-12'>
+					  <thead style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
+                      {event_list}
+					  </thead>
+				  </table>
 			  </div>
 				
 			  <div className="blueberry" id="charities">
 				<div className="container content padding-64" style={{maxWidth:'90%'}}>
 				  <h2 className="wide center">CHARITIES</h2>
 				  <p className="opacity center"><i>Contribute to one of these great organizations!</i></p><br />
-				  <thead style={{width:'60%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
-				    {charity_list}
-				  </thead>
+					<table style={{margin: 'auto'}} className = 'col-xs-12'>
+						<thead style={{width:'60%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
+                        {charity_list}
+						</thead>
+					</table>
 				</div>
 			  </div>
 
 			  <div className="container content center padding-64" style={{maxWidth:'800px'}} id="games">
 				<h2 className="wide">GAMES</h2>
 				<p className="opacity center"><i>Which one will you choose?</i></p><br />
-				<thead style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
-				  {game_list}
-				</thead>
+				  <table style={{margin: 'auto'}} className = 'col-xs-12'>
+					  <thead style={{width:'80%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
+                      {game_list}
+					  </thead>
+				  </table>
 			  </div>
 
 			  <div className="blueberry" id="about">

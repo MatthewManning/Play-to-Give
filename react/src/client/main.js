@@ -55,22 +55,22 @@ class User {
         return this.data.username;
     }
 
-    // logIn(router, data) {
-    //     // Store locally
-    //     this.data = data;
-    //     // Go to user profile
-    //     router.push(`/profile/${data.username}`);
-    // }
+    logIn(router, data) {
+        // Store locally
+        this.data = data;
+        // Go to user profile
+        router.push(`/profile/${data.username}`);
+    }
 
-    // logOut(router) {
-    //     // Remove user info
-    //     this.data = {
-    //         username: "",
-    //         primary_email: ""
-    //     };
-    //     // Go to login page
-    //     router.push('/login');
-    // }
+    logOut(router) {
+        // Remove user info
+        this.data = {
+            username: "",
+            primary_email: ""
+        };
+        // Go to login page
+        router.push('/login');
+    }
 
     getUser() {
         return this.data;

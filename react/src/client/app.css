@@ -5,3 +5,7 @@
 #loginModalForm {
     width: 100%;
 }
+
+.col-xs-12 {
+    float: none;
+}

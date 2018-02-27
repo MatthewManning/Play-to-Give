@@ -36,16 +36,17 @@ class Register extends Component {
     onSubmit(ev) {
         ev.preventDefault();
         const data = {
-            username:       document.getElementById('username').value,
+            username:       document.getElementById('username_register').value,
             first_name:     document.getElementById('first_name').value,
             last_name:      document.getElementById('last_name').value,
             primary_email:  document.getElementById('primary_email').value,
-            password:       document.getElementById('password').value
+            password:       document.getElementById('password_register').value
         };
         let $error = $('#errorMsg');
         let pwdInvalid = Register.validPassword(data.password);
         if (!data.username || data.username.length > 16 || data.username.length < 6 || !data.username.match(/^[a-z0-9]+$/i)) {
             $error.html('Error: malformed username');
+            console.log(data.username);
         } else if (pwdInvalid) {
             $error.html(`Error: ${pwdInvalid.error}`);
         } else $.ajax({
@@ -54,11 +55,12 @@ class Register extends Component {
             data: data
         })
             .then(() => {
-                this.props.history.push('/login');
+                this.props.history.push('/');
             })
             .fail(err => {
                 let errorEl = document.getElementById('errorMsg');
                 errorEl.innerHTML = `Error: ${err.responseJSON.error}`;
+                console.log(err)
             });
     }
 
@@ -71,10 +73,11 @@ class Register extends Component {
         };
         return (
             <div className="content" style={contentStyle}>
-                <div className="center-block">
-                    <p id="errorMsg" className="bg-danger"/>
-                </div>
+
                 <div className="container content center padding-64" style={containerStyle} id="info">
+                    <div className="center-block">
+                        <p id="errorMsg" className="bg-danger"/>
+                    </div>
                     <h2 className="wide">Sign Up</h2>
                     <form className="form-horizontal">
                         <div className="form-group">
@@ -96,13 +99,13 @@ class Register extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <label className="col-sm-2 control-label" htmlFor="username">Username:</label>
+                            <label className="col-sm-2 control-label" htmlFor="username_register">Username:</label>
                             <div className="col-sm-10">
                                 <input className="form-control" id="username_register" type="text" placeholder="Username"/>
                             </div>
                         </div>
                         <div className="form-group">
-                            <label className="col-sm-2 control-label" htmlFor="password">Password:</label>
+                            <label className="col-sm-2 control-label" htmlFor="password_register">Password:</label>
                             <div className="col-sm-10">
                                 <input className="form-control" id="password_register" type="password" placeholder="Password"/>
                             </div>

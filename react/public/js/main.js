@@ -552,22 +552,22 @@ class User {
         return this.data.username;
     }
 
-    // logIn(router, data) {
-    //     // Store locally
-    //     this.data = data;
-    //     // Go to user profile
-    //     router.push(`/profile/${data.username}`);
-    // }
+    logIn(router, data) {
+        // Store locally
+        this.data = data;
+        // Go to user profile
+        router.push(`/profile/${data.username}`);
+    }
 
-    // logOut(router) {
-    //     // Remove user info
-    //     this.data = {
-    //         username: "",
-    //         primary_email: ""
-    //     };
-    //     // Go to login page
-    //     router.push('/login');
-    // }
+    logOut(router) {
+        // Remove user info
+        this.data = {
+            username: "",
+            primary_email: ""
+        };
+        // Go to login page
+        router.push('/login');
+    }
 
     getUser() {
         return this.data;
@@ -1504,7 +1504,7 @@ NavLink.defaultProps = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(41);
 // Written in this round about way for babel-transform-imports
 
 
@@ -1636,7 +1636,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
 		};let event_list = this.state.events.length > 0 ? this.state.events.map((e, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'tr',
-			null,
+			{ key: index },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'td',
 				{ style: { verticalAlign: 'middle', height: '50px' } },
@@ -1663,7 +1663,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
 		let charity_list = this.state.charities.length > 0 ? this.state.charities.map((c, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'tr',
-			null,
+			{ key: index },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'td',
 				{ style: { verticalAlign: 'middle', textAlign: 'center', height: '100px' } },
@@ -1704,7 +1704,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
 		let game_list = this.state.games.length > 0 ? this.state.games.map((g, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'tr',
-			null,
+			{ key: index },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'td',
 				{ style: { verticalAlign: 'middle', height: '100px' } },
@@ -1746,7 +1746,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 		const page_html = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			{ className: 'content', style: { maxWidth: '2000px', marginTop: '46px' } },
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'stylesheet', type: 'text/css', charset: 'UTF-8', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css' }),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'stylesheet', type: 'text/css', charSet: 'UTF-8', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css' }),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { rel: 'stylesheet', type: 'text/css', href: 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css' }),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				__WEBPACK_IMPORTED_MODULE_1_react_slick___default.a,
@@ -1785,9 +1785,13 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 					)
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'thead',
-					{ style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
-					event_list
+					'table',
+					{ style: { margin: 'auto' }, className: 'col-xs-12' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'thead',
+						{ style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+						event_list
+					)
 				)
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1812,9 +1816,13 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'thead',
-						{ style: { width: '60%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
-						charity_list
+						'table',
+						{ style: { margin: 'auto' }, className: 'col-xs-12' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'thead',
+							{ style: { width: '60%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+							charity_list
+						)
 					)
 				)
 			),
@@ -1837,9 +1845,13 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'thead',
-					{ style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
-					game_list
+					'table',
+					{ style: { margin: 'auto' }, className: 'col-xs-12' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'thead',
+						{ style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+						game_list
+					)
 				)
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -1959,7 +1971,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Landing);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(42)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
 
 /***/ }),
 
@@ -3804,7 +3816,7 @@ module.exports = QueryHandler;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(62);
 
@@ -3817,6 +3829,27 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 		super(props);
 		this.loginClick = this.loginClick.bind(this);
 		this.modalClick = this.modalClick.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
+	}
+
+	onSubmit(ev) {
+		ev.preventDefault();
+		const data = {
+			username: document.getElementById('username').value,
+			password: document.getElementById('password').value
+		};
+		$.ajax({
+			url: '/v1/session',
+			method: 'post',
+			data: data
+		}).then(data => {
+			this.props.user.logIn(this.props.history, data);
+			let loginModal = document.getElementById('loginModal');
+			loginModal.style.display = 'none';
+		}).fail(err => {
+			let errorEl = document.getElementById('errorMsg');
+			errorEl.innerHTML = `Error:  ${err.responseJSON.error}`;
+		});
 	}
 
 	loginClick(ev) {
@@ -3834,6 +3867,71 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 	render() {
 		const img_source = "/images/d-pad_example.png";
 		const user = this.props.user.getUser();
+		const loginModal = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ id: 'loginModal', className: 'modal' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'modal-content animate-top card-4' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'header',
+					{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'span',
+						{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
+						'\xD7'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h2',
+						{ className: 'wide' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
+						'Login'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'form',
+					{ id: 'loginModalForm', className: 'container text-dark-grey' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						null,
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'label',
+							{ htmlFor: 'username' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user' }),
+							' Username'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'username', type: 'text', placeholder: 'Enter Username' }),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						null,
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'label',
+							{ htmlFor: 'password' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-key' }),
+							' Password'
+						)
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'button',
+						{ onClick: this.onSubmit, className: 'button block blueberry hover-apple-core padding-16 section right' },
+						'LOGIN ',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'p',
+						{ className: 'left' },
+						'Not a member? ',
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+							{ to: './register', className: 'text-blue' },
+							'Sign Up'
+						)
+					)
+				)
+			)
+		);
 		const header = user.username !== '' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'nav',
 			{ className: 'bar blueberry card' },
@@ -3873,71 +3971,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.loginClick },
 				'login / sign up'
 			),
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ id: 'loginModal', className: 'modal' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'modal-content animate-top card-4' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'header',
-						{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'span',
-							{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
-							'\xD7'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h2',
-							{ className: 'wide' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
-							'Login'
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'form',
-						{ id: 'loginModalForm', className: 'container text-dark-grey' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'label',
-								{ htmlFor: 'username' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user' }),
-								' Username'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'username', type: 'text', placeholder: 'Enter Username or Email Address' }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'label',
-								{ htmlFor: 'password' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-key' }),
-								' Password'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'button',
-							{ className: 'button block blueberry hover-apple-core padding-16 section right' },
-							'LOGIN ',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							{ className: 'left' },
-							'Not a member? ',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-								{ to: './register', className: 'text-blue' },
-								'Sign Up'
-							)
-						)
-					)
-				)
-			)
+			loginModal
 		) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'nav',
 			{ className: 'bar blueberry card' },
@@ -3977,71 +4011,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.loginClick },
 				'login / sign up'
 			),
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'div',
-				{ id: 'loginModal', className: 'modal' },
-				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-					'div',
-					{ className: 'modal-content animate-top card-4' },
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'header',
-						{ id: 'loginModalHeader', className: 'container blueberry center padding-32' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'span',
-							{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
-							'\xD7'
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'h2',
-							{ className: 'wide' },
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user margin-right' }),
-							'Login'
-						)
-					),
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-						'form',
-						{ id: 'loginModalForm', className: 'container text-dark-grey' },
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'label',
-								{ htmlFor: 'username' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-user' }),
-								' Username'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'username', type: 'text', placeholder: 'Enter Username or Email Address' }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							null,
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								'label',
-								{ htmlFor: 'password' },
-								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-key' }),
-								' Password'
-							)
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'input border', id: 'password', type: 'password', placeholder: 'Enter Password' }),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'button',
-							{ className: 'button block blueberry hover-apple-core padding-16 section right' },
-							'LOGIN ',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
-						),
-						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-							'p',
-							{ className: 'left' },
-							'Not a member? ',
-							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-								__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-								{ to: './register', className: 'text-blue' },
-								'Sign Up'
-							)
-						)
-					)
-				)
-			)
+			loginModal
 		);
 
 		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -4053,6 +4023,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Header));
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
 
 /***/ }),
 
@@ -4097,16 +4068,17 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     onSubmit(ev) {
         ev.preventDefault();
         const data = {
-            username: document.getElementById('username').value,
+            username: document.getElementById('username_register').value,
             first_name: document.getElementById('first_name').value,
             last_name: document.getElementById('last_name').value,
             primary_email: document.getElementById('primary_email').value,
-            password: document.getElementById('password').value
+            password: document.getElementById('password_register').value
         };
         let $error = $('#errorMsg');
         let pwdInvalid = Register.validPassword(data.password);
         if (!data.username || data.username.length > 16 || data.username.length < 6 || !data.username.match(/^[a-z0-9]+$/i)) {
             $error.html('Error: malformed username');
+            console.log(data.username);
         } else if (pwdInvalid) {
             $error.html(`Error: ${pwdInvalid.error}`);
         } else $.ajax({
@@ -4114,10 +4086,11 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             method: "post",
             data: data
         }).then(() => {
-            this.props.history.push('/login');
+            this.props.history.push('/');
         }).fail(err => {
             let errorEl = document.getElementById('errorMsg');
             errorEl.innerHTML = `Error: ${err.responseJSON.error}`;
+            console.log(err);
         });
     }
 
@@ -4133,12 +4106,12 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             { className: 'content', style: contentStyle },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'center-block' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { id: 'errorMsg', className: 'bg-danger' })
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
                 { className: 'container content center padding-64', style: containerStyle, id: 'info' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'center-block' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { id: 'errorMsg', className: 'bg-danger' })
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'h2',
                     { className: 'wide' },
@@ -4194,7 +4167,7 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                         { className: 'form-group' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
-                            { className: 'col-sm-2 control-label', htmlFor: 'username' },
+                            { className: 'col-sm-2 control-label', htmlFor: 'username_register' },
                             'Username:'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -4208,7 +4181,7 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                         { className: 'form-group' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'label',
-                            { className: 'col-sm-2 control-label', htmlFor: 'password' },
+                            { className: 'col-sm-2 control-label', htmlFor: 'password_register' },
                             'Password:'
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -4230,7 +4203,7 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router__["withRouter"])(Register));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(42)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
 
 /***/ }),
 
@@ -4486,7 +4459,7 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Events));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(42)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
 
 /***/ }),
 
@@ -4530,7 +4503,7 @@ exports = module.exports = __webpack_require__(261)(false);
 
 
 // module
-exports.push([module.i, "#loginModalHeader {\r\n    width: 100%;\r\n}\r\n\r\n#loginModalForm {\r\n    width: 100%;\r\n}", ""]);
+exports.push([module.i, "#loginModalHeader {\r\n    width: 100%;\r\n}\r\n\r\n#loginModalForm {\r\n    width: 100%;\r\n}\r\n\r\n.col-xs-12 {\r\n    float: none;\r\n}", ""]);
 
 // exports
 
@@ -5195,7 +5168,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(40);
 // Written in this round about way for babel-transform-imports
 
 
