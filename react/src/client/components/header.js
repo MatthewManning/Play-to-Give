@@ -10,6 +10,12 @@ class Header extends Component {
 		this.loginClick = this.loginClick.bind(this);
 		this.modalClick = this.modalClick.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.logout = this.logout.bind(this);
+	}
+
+	logout(ev) {
+		ev.preventDefault();
+        this.props.user.logOut(this.props.history);
 	}
 
 	onSubmit(ev) {
@@ -65,7 +71,7 @@ class Header extends Component {
 				</form>
 			</div>
 		</div>;
-		const header = user.username !== '' ?
+		const header = user.username === '' ?
 				<nav className="bar blueberry card">
 					<Link to="/" className="bar-item button hover-apple-core padding-large"><img style={{height: '25px'}} src={img_source}/> PLAY TO GIVE</Link>
 					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">EVENTS</Link>
@@ -83,7 +89,7 @@ class Header extends Component {
 					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">GAMES</Link>
 					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">ABOUT US</Link>
 					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">CONTACT</Link>
-					<button className="bar-item button padding-large hover-apple-core hide-small right" onClick={this.loginClick}>login / sign up</button>
+					<button className="bar-item button padding-large hover-apple-core hide-small right" onClick={this.logout}>Logout</button>
 					{loginModal}
 				</nav>;
 

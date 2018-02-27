@@ -69,7 +69,7 @@ class User {
             primary_email: ""
         };
         // Go to login page
-        router.push('/login');
+        router.push('/');
     }
 
     getUser() {

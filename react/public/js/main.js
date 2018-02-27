@@ -566,7 +566,7 @@ class User {
             primary_email: ""
         };
         // Go to login page
-        router.push('/login');
+        router.push('/');
     }
 
     getUser() {
@@ -3830,6 +3830,12 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 		this.loginClick = this.loginClick.bind(this);
 		this.modalClick = this.modalClick.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
+		this.logout = this.logout.bind(this);
+	}
+
+	logout(ev) {
+		ev.preventDefault();
+		this.props.user.logOut(this.props.history);
 	}
 
 	onSubmit(ev) {
@@ -3932,7 +3938,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				)
 			)
 		);
-		const header = user.username !== '' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+		const header = user.username === '' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'nav',
 			{ className: 'bar blueberry card' },
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -4008,8 +4014,8 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'button',
-				{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.loginClick },
-				'login / sign up'
+				{ className: 'bar-item button padding-large hover-apple-core hide-small right', onClick: this.logout },
+				'Logout'
 			),
 			loginModal
 		);
