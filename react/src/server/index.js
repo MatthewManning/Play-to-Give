@@ -45,8 +45,9 @@ mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.
         app.models = {
             Event: require('./models/event'),
 			Charity: require('./models/charities'),
-			Game: require('./models/games'),
-            User: require('./models/users')
+			Games: require('./models/games'),
+            User: require('./models/users'),
+            Game: require('./models/game')
         };
 
         // Import our API Routes

@@ -1,7 +1,7 @@
 let mongoose            = require('mongoose'),
     Schema              = mongoose.Schema;
 
-let Game = new Schema({
+let Games = new Schema({
     'game_name' :    { type: String, required: true, index: { unique: true } },
     'picture':   { type: String, default: '' },
     'summary':     { type: String, default: '' },
@@ -12,4 +12,4 @@ let Game = new Schema({
     'highscore5':   {type: Number, default: ''}
 });
 
-module.exports = mongoose.model('Game', Game);
+module.exports = mongoose.model('Games', Games);
