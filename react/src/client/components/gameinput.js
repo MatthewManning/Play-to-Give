@@ -9,9 +9,8 @@ class GameInput extends Component {
 
     onSubmit(ev) {
         ev.preventDefault();
-        const user = this.props.user.getUser();
+        console.log(this.props);
         let data = {
-            owner: user,
             score: document.getElementById('score').value
         };
         $.ajax({
@@ -26,8 +25,12 @@ class GameInput extends Component {
 
     render() {
 
+        const containerStyle = {
+            width: '800px'
+        };
+
         return (
-            <div>
+            <div className="container content center padding-64" style={containerStyle} id="info">
                 <form className="form-horizontal">
                     <div className="form-group">
                         <label className="col-sm-2 control-label" htmlFor="score">Score: </label>
@@ -42,3 +45,5 @@ class GameInput extends Component {
 
     }
 }
+
+export default withRouter(GameInput);

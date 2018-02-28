@@ -7,6 +7,8 @@ import Landing				from './components/landing';
 import Header               from './components/header';
 import Register             from './components/register';
 import Events 				from './components/events';
+import GameInput            from './components/gameinput';
+import HighScore            from './components/highscores';
 
 import './app.css'
 
@@ -26,6 +28,8 @@ class App extends Component {
                 <Route exact path="/" render={props => <Landing user={this.user}/>}/>
                 <Route path="/register" component={Register}/>
 				<Route path="/events" component={Events}/>
+                <Route path="/gameinput" component={GameInput}/>
+                <Route path="/highscore" component={HighScore}/>
             </div>
         </BrowserRouter>;
 

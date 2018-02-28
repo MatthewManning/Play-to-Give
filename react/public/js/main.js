@@ -194,7 +194,7 @@ Link.contextTypes = {
 exports.__esModule = true;
 exports.getTrackLeft = exports.getTrackAnimateCSS = exports.getTrackCSS = undefined;
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(25);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -487,15 +487,19 @@ module.exports = {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_landing__ = __webpack_require__(239);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_header__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_register__ = __webpack_require__(257);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_events__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_css__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__app_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_gameinput__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_highscores__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_css__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__app_css__);
+
+
 
 
 
@@ -523,7 +527,9 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_header__["a" /* default */], { user: this.user }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { exact: true, path: '/', render: props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_landing__["a" /* default */], { user: this.user }) }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/register', component: __WEBPACK_IMPORTED_MODULE_5__components_register__["a" /* default */] }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/events', component: __WEBPACK_IMPORTED_MODULE_6__components_events__["a" /* default */] })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/events', component: __WEBPACK_IMPORTED_MODULE_6__components_events__["a" /* default */] }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/gameinput', component: __WEBPACK_IMPORTED_MODULE_7__components_gameinput__["a" /* default */] }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/highscore', component: __WEBPACK_IMPORTED_MODULE_8__components_highscores__["a" /* default */] })
             )
         );
     }
@@ -668,7 +674,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(63);
 
-var _PathUtils = __webpack_require__(29);
+var _PathUtils = __webpack_require__(31);
 
 var _createTransitionManager = __webpack_require__(64);
 
@@ -1047,7 +1053,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _LocationUtils = __webpack_require__(63);
 
-var _PathUtils = __webpack_require__(29);
+var _PathUtils = __webpack_require__(31);
 
 var _createTransitionManager = __webpack_require__(64);
 
@@ -1504,7 +1510,7 @@ NavLink.defaultProps = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(42);
 // Written in this round about way for babel-transform-imports
 
 
@@ -1971,7 +1977,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Landing);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
 
 /***/ }),
 
@@ -2220,7 +2226,7 @@ var _createReactClass = __webpack_require__(245);
 
 var _createReactClass2 = _interopRequireDefault(_createReactClass);
 
-var _classnames = __webpack_require__(43);
+var _classnames = __webpack_require__(44);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -2542,7 +2548,7 @@ var _objectAssign = __webpack_require__(4);
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(25);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -3030,7 +3036,7 @@ var _objectAssign = __webpack_require__(4);
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-var _classnames = __webpack_require__(43);
+var _classnames = __webpack_require__(44);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -3219,7 +3225,7 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = __webpack_require__(43);
+var _classnames = __webpack_require__(44);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -3319,7 +3325,7 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = __webpack_require__(43);
+var _classnames = __webpack_require__(44);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -3818,7 +3824,7 @@ module.exports = QueryHandler;
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(30);
 
 
 
@@ -3852,6 +3858,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 			this.props.user.logIn(this.props.history, data);
 			let loginModal = document.getElementById('loginModal');
 			loginModal.style.display = 'none';
+			console.log(this.props);
 		}).fail(err => {
 			let errorEl = document.getElementById('errorMsg');
 			errorEl.innerHTML = `Error:  ${err.responseJSON.error}`;
@@ -4029,7 +4036,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Header));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
 
 /***/ }),
 
@@ -4209,7 +4216,7 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router__["withRouter"])(Register));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
 
 /***/ }),
 
@@ -4219,7 +4226,7 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(30);
 
 
 
@@ -4465,17 +4472,164 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Events));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
 
 /***/ }),
 
 /***/ 259:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(30);
+
+
+
+class GameInput extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+    constructor(props) {
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onSubmit(ev) {
+        ev.preventDefault();
+        console.log(this.props);
+        let data = {
+            score: document.getElementById('score').value
+        };
+        $.ajax({
+            url: '/v1/game/create',
+            method: 'post',
+            data: data
+        }).then(console.log('game created'));
+    }
+
+    render() {
+
+        const containerStyle = {
+            width: '800px'
+        };
+
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'container content center padding-64', style: containerStyle, id: 'info' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'form',
+                { className: 'form-horizontal' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'label',
+                        { className: 'col-sm-2 control-label', htmlFor: 'score' },
+                        'Score: '
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'col-sm-10' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control', id: 'score', type: 'text', placeholder: 'Score' })
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'button',
+                    { onClick: this.onSubmit, className: 'button block blueberry hover-apple-core padding-16 section right' },
+                    'Submit Score'
+                )
+            )
+        );
+    }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(GameInput));
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+
+/***/ }),
+
+/***/ 260:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(30);
+
+
+
+class HighScore extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+    constructor(props) {
+        super(props);
+        this.state = { highscores: {} };
+    }
+
+    componentDidMount() {
+        $.ajax({
+            url: '/v1/game/highscores',
+            method: 'get'
+        }).then(data => {
+            console.log(data.highscores);
+            this.setState({ highscores: data.highscores });
+        });
+    }
+
+    render() {
+
+        let highscore_list = this.state.highscores.length > 0 ? this.state.highscores.map((highscore, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'tr',
+            { key: index },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'td',
+                { style: { verticalAlign: 'middle', height: '50px' } },
+                highscore.score
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'td',
+                { style: { verticalAlign: 'middle', height: '50px' } },
+                highscore.owner
+            )
+        )) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'tr',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'td',
+                { style: { verticalAlign: 'middle', height: '50px' } },
+                'No highscores'
+            )
+        );
+
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'container content center padding-64', style: { maxWidth: '800px' }, id: 'highscores' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'h2',
+                { className: 'wide' },
+                'Highscores'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'table',
+                { style: { margin: 'auto' }, className: 'col-xs-12' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'thead',
+                    { style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+                    highscore_list
+                )
+            )
+        );
+    }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(HighScore));
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+
+/***/ }),
+
+/***/ 261:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(260);
+var content = __webpack_require__(262);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -4483,7 +4637,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(262)(content, options);
+var update = __webpack_require__(264)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -4501,10 +4655,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 260:
+/***/ 262:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(261)(false);
+exports = module.exports = __webpack_require__(263)(false);
 // imports
 
 
@@ -4516,7 +4670,7 @@ exports.push([module.i, "#loginModalHeader {\r\n    width: 100%;\r\n}\r\n\r\n#lo
 
 /***/ }),
 
-/***/ 261:
+/***/ 263:
 /***/ (function(module, exports) {
 
 /*
@@ -4599,7 +4753,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 262:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -4645,7 +4799,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(263);
+var	fixUrls = __webpack_require__(265);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -4959,7 +5113,7 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 
-/***/ 263:
+/***/ 265:
 /***/ (function(module, exports) {
 
 
@@ -5055,63 +5209,7 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ 43:
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-  Copyright (c) 2016 Jed Watson.
-  Licensed under the MIT License (MIT), see
-  http://jedwatson.github.io/classnames
-*/
-/* global define */
-
-(function () {
-	'use strict';
-
-	var hasOwn = {}.hasOwnProperty;
-
-	function classNames () {
-		var classes = [];
-
-		for (var i = 0; i < arguments.length; i++) {
-			var arg = arguments[i];
-			if (!arg) continue;
-
-			var argType = typeof arg;
-
-			if (argType === 'string' || argType === 'number') {
-				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				classes.push(classNames.apply(null, arg));
-			} else if (argType === 'object') {
-				for (var key in arg) {
-					if (hasOwn.call(arg, key) && arg[key]) {
-						classes.push(key);
-					}
-				}
-			}
-		}
-
-		return classes.join(' ');
-	}
-
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
-	} else if (true) {
-		// register as 'classnames', consistent with npm package name
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
-			return classNames;
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	} else {
-		window.classNames = classNames;
-	}
-}());
-
-
-/***/ }),
-
-/***/ 62:
+/***/ 30:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5170,11 +5268,67 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
+/***/ 44:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+
+/***/ }),
+
 /***/ 65:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(41);
 // Written in this round about way for babel-transform-imports
 
 
@@ -5292,7 +5446,7 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(25);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 

@@ -32,6 +32,7 @@ class Header extends Component {
 			this.props.user.logIn(this.props.history, data);
             let loginModal = document.getElementById('loginModal');
             loginModal.style.display = 'none';
+            console.log(this.props);
 		}).fail(err => {
 			let errorEl = document.getElementById('errorMsg');
 			errorEl.innerHTML = `Error:  ${err.responseJSON.error}`;
