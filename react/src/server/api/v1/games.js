@@ -40,7 +40,7 @@ module.exports = app => {
 	});
 
 	app.get('/v1/game/highscores', (req, res) => {
-	   app.models.Game.find().sort({score: -1}).limit(5)
+	   app.models.PlayerGame.find().sort({score: -1}).limit(5)
            .then(
                highscores => {
                    res.status(200).send({
@@ -71,7 +71,7 @@ module.exports = app => {
                    end: Date.now(),
                    active: false
                };
-	           let game = new app.models.Game(newGame);
+	           let game = new app.models.PlayerGame(newGame);
 	           game.save(err =>  {
 	               if (err) {
 	                   console.log(`Game.create save failure: ${err}`);

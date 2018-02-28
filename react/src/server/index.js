@@ -47,7 +47,7 @@ mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.
 			Charity: require('./models/charities'),
 			Games: require('./models/games'),
             User: require('./models/users'),
-            Game: require('./models/game')
+            PlayerGame: require('./models/game')
         };
 
         // Import our API Routes
