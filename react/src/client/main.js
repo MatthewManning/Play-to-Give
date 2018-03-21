@@ -9,6 +9,7 @@ import Register             from './components/register';
 import Events 				from './components/events';
 import GameInput            from './components/gameinput';
 import HighScore            from './components/highscores';
+import SimpleDonate         from './components/simpledonate';
 
 import './app.css'
 
@@ -30,6 +31,7 @@ class App extends Component {
 				<Route path="/events" component={Events}/>
                 <Route path="/gameinput" component={GameInput}/>
                 <Route path="/highscore" component={HighScore}/>
+                <Route path="/simpledonate" component={SimpleDonate}/>
             </div>
         </BrowserRouter>;
 

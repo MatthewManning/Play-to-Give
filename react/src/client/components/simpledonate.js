@@ -12,7 +12,8 @@ class SimpleDonate extends Component {
         let currency = 'USD';
         let total = 1;
         const onSuccess = (payment) => {
-            console.log("The payment was succeeded!", payment);
+            console.log("The payment was successful!", payment);
+            //set some state on user account info via api call to let them play games
         };
         const onCancel = (data) => {
             console.log('The payment was cancelled!', data);
@@ -25,7 +26,10 @@ class SimpleDonate extends Component {
             production: 'YOUR-PRODUCTION-APP-ID',
         };
         return (
-            <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
+            <div className="container content center padding-64">
+                <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
+            </div>
+
         );
 
     }
