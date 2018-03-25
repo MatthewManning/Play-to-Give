@@ -85,7 +85,7 @@ class Landing extends Component {
 	render() {
 		
 		const settings = {
-			speed: 3000,
+			autoplaySpeed: 5000,
 			autoplay: true,
 			infinite: true,
 		    slidesToShow: 1,

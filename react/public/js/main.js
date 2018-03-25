@@ -532,7 +532,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/events', component: __WEBPACK_IMPORTED_MODULE_6__components_events__["a" /* default */] }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/gameinput', component: __WEBPACK_IMPORTED_MODULE_7__components_gameinput__["a" /* default */] }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/highscore', component: __WEBPACK_IMPORTED_MODULE_8__components_highscores__["a" /* default */] }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/simpledonate', component: __WEBPACK_IMPORTED_MODULE_9__components_simpledonate__["a" /* default */] })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/simpledonate', render: props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_simpledonate__["a" /* default */], { user: this.user }) })
             )
         );
     }
@@ -1632,7 +1632,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 	render() {
 
 		const settings = {
-			speed: 3000,
+			autoplaySpeed: 5000,
 			autoplay: true,
 			infinite: true,
 			slidesToShow: 1,
@@ -1980,7 +1980,7 @@ class Landing extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Landing);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 
@@ -4039,7 +4039,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Header));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 
@@ -4219,7 +4219,7 @@ class Register extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router__["withRouter"])(Register));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 
@@ -4475,7 +4475,7 @@ class Events extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Events));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 
@@ -4545,7 +4545,7 @@ class GameInput extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(GameInput));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 
@@ -4681,7 +4681,7 @@ class HighScore extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(HighScore));
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 
@@ -4689,7 +4689,7 @@ class HighScore extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_paypal_express_checkout__ = __webpack_require__(262);
@@ -4699,37 +4699,235 @@ class HighScore extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
 
 class SimpleDonate extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
-    constructor(props) {
-        super(props);
-    }
+	constructor(props) {
+		super(props);
+		this.donateClick = this.donateClick.bind(this);
+		this.modalClick = this.modalClick.bind(this);
 
-    render() {
-        let env = 'sandbox';
-        let currency = 'USD';
-        let total = 1000;
-        const onSuccess = payment => {
-            console.log("The payment was successful!", payment);
-        };
-        const onCancel = data => {
-            console.log('The payment was cancelled!', data);
-        };
-        const onError = err => {
-            console.log("Error!", err);
-        };
-        const client = {
-            sandbox: 'AXNyaNk-cU4QvxtUq3g-_LBO22hiFggLx8i5-k-j1QWmqfuE9AWy06ThkkPOOpqtde-XHwUPwcYWLM3A',
-            production: 'YOUR-PRODUCTION-APP-ID'
-        };
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'div',
-            { className: 'container content center padding-64' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_paypal_express_checkout___default.a, { env: env, client: client, currency: currency, total: total, onError: onError, onSuccess: onSuccess, onCancel: onCancel })
-        );
-    }
+		this.state = { games: {} };
+	}
 
+	// hide the game by default, get a list of playable games
+	componentDidMount() {
+		let game = document.getElementById('game');
+		game.style.display = 'none';
+
+		$.ajax({
+			url: `/v1/games`,
+			method: "get"
+		}).then(data => {
+			this.setState({ games: data.games });
+		}).fail(err => {
+			console.log(err.error);
+		});
+	}
+
+	donateClick(username) {
+
+		// check that the user has paid,
+		// if they have, show the game
+		$.ajax({
+			url: `/v1/user/timestamp/${username}`,
+			method: 'get'
+		}).then(data => {
+			if (data.valid) {
+				console.log("user has paid");
+
+				let game = document.getElementById('game');
+				game.style.display = 'block';
+
+				let play = document.getElementById('play');
+				play.style.display = 'none';
+			} else {
+				let donateModal = document.getElementById('donateModal');
+				donateModal.style.display = 'block';
+			}
+		}).fail(err => {
+			let errorEl = document.getElementById('errorMsg');
+			errorEl.innerHTML = `Error:  ${err.responseJSON.error}`;
+		});
+	}
+
+	// hide modal
+	modalClick(ev) {
+		ev.preventDefault();
+		let donateModal = document.getElementById('donateModal');
+		donateModal.style.display = 'none';
+	}
+
+	render() {
+		let env = 'sandbox';
+		let currency = 'USD';
+		let total = 1;
+
+		const user = this.props.user.getUser();
+		const onSuccess = payment => {
+			console.log("The payment was successful!", payment);
+
+			// get the time the user paid
+			const data = {
+				username: user.username,
+				timestamp: new Date().getTime()
+			};
+
+			//set some state on user account info via api call to let them play games
+			$.ajax({
+				url: '/v1/user/timestamp',
+				method: 'put',
+				data: data
+			}).then(data => {
+				let donateModal = document.getElementById('donateModal');
+				donateModal.style.display = 'none';
+				console.log('updated user timestamp');
+			}).fail(err => {
+				let errorEl = document.getElementById('errorMsg');
+				errorEl.innerHTML = `Error:  ${err.responseJSON.error}`;
+			});
+		};
+		const onCancel = data => {
+			console.log('The payment was cancelled!', data);
+		};
+		const onError = err => {
+			console.log("Error!", err);
+		};
+		const client = {
+			// jacob's sandbox facilitator
+			//sandbox:	'AQ-fj_iUQju9vVqDH5WQTD1ZZrS6YiwWn7KlLuq-Pnq4Lya5UvCf4_w2NQRVC34SvDJ0FBj9SBs3gBaX',
+
+			sandbox: 'AXNyaNk-cU4QvxtUq3g-_LBO22hiFggLx8i5-k-j1QWmqfuE9AWy06ThkkPOOpqtde-XHwUPwcYWLM3A',
+			production: 'YOUR-PRODUCTION-APP-ID'
+		};
+
+		let game_list = this.state.games.length > 0 ? this.state.games.map((g, index) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'tr',
+			{ key: index },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: g.picture, style: { maxWidth: '267px', maxHeight: '100px' } })
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				g.game_name
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'button',
+					{ className: 'button blueberry hover-apple-core right' },
+					'Learn More'
+				)
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'button',
+					{ className: 'button blueberry hover-apple-core right', onClick: this.donateClick.bind(this, user.username) },
+					'Play'
+				)
+			)
+		)) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'tr',
+			null,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'td',
+				{ style: { verticalAlign: 'middle', height: '100px' } },
+				'No games'
+			)
+		);
+
+		// pop-up asking user to donate
+		const donateModal = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ id: 'donateModal', className: 'modal' },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'modal-content animate-top card-4' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'header',
+					{ id: 'donateModalHeader', className: 'modal-header blueberry center padding-32' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'span',
+						{ onClick: this.modalClick, className: 'button blueberry hover-red xlarge display-topright' },
+						'\xD7'
+					),
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'h2',
+						null,
+						'Donate to Play!'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'modal-body' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'container-fluid' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'row' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'col-sm-2 col-sm-offset-5 text-center' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_paypal_express_checkout___default.a, { env: env, client: client, currency: currency, total: total, onError: onError, onSuccess: onSuccess, onCancel: onCancel })
+							)
+						)
+					)
+				)
+			)
+		);
+
+		return user.username !== '' ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'content', style: { marginTop: '46px' } },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'errorMsg' }),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container content center padding-64', style: { maxWidth: '800px' }, id: 'play' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'h2',
+					{ className: 'wide' },
+					'GAMES'
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					{ className: 'opacity center' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'i',
+						null,
+						'Which one will you choose?'
+					)
+				),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'table',
+					{ style: { margin: 'auto' }, className: 'col-xs-12' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'thead',
+						{ style: { width: '80%', maxWidth: '600px', margin: 'auto' }, className: 'table-all white text-grey' },
+						game_list
+					)
+				)
+			),
+			donateModal,
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('iframe', { id: 'game', src: 'https://www.silvergames.com/en/2048/iframe', style: { width: "400px", height: "540px", marginLeft: 'auto', marginRight: 'auto' } })
+		) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+			'div',
+			{ className: 'content', style: { marginTop: '100px' } },
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'alert alert-warning' },
+				'You must log in to play!'
+			)
+		);
+	}
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(SimpleDonate));
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(18)))
 
 /***/ }),
 

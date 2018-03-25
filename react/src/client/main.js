@@ -31,7 +31,7 @@ class App extends Component {
 				<Route path="/events" component={Events}/>
                 <Route path="/gameinput" component={GameInput}/>
                 <Route path="/highscore" component={HighScore}/>
-                <Route path="/simpledonate" component={SimpleDonate}/>
+                <Route path="/simpledonate" render={props => <SimpleDonate user={this.user}/>}/>
             </div>
         </BrowserRouter>;
 

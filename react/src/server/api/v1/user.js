@@ -124,4 +124,57 @@ module.exports = (app) => {
             });
         }
     });
+	
+	app.put('/v1/user/timestamp', (req, res) => {
+        if (!req.session.user) {
+            res.status(401).send({ error: 'unauthorized' });
+        } else {
+            let schema = Joi.object().keys({
+                timestamp: Joi.number().integer().min(0)
+            });
+            Joi.validate(req.body, schema, {stripUnknown: true}, (err, data) => {
+                if (err) {
+                    const message = err.details[0].message;
+                    console.log(`User.timestamp.update validation failure: ${message}`);
+                    res.status(400).send({error: message});
+                } else {
+                    const query = { username: req.session.user.username };
+                    app.models.User.findOneAndUpdate(query, {$set: data}, {new: true})
+                        .then(
+                            user => {
+                                req.session.user = user;
+                                console.log(user.username);
+								console.log(user.timestamp);
+                                res.status(204).send({username: user.username, timestamp: user.timestamp});
+                            }, err => {
+                                console.log(`User..timestamp.update logged-in user not found: ${req.session.user.id}`);
+                                res.status(500).end();
+                            }
+                        );
+                }
+            });
+        }
+    });
+	
+	app.get('/v1/user/timestamp/:username', (req, res) => {
+        app.models.User.findOne({ username: req.params.username.toLowerCase() })
+            .then(
+                user => {
+                    if (!user) res.status(404).send({ error: `unknown user: ${req.params.username}` });
+                    else {
+						
+						user.timestamp > ((new Date().getTime() / 1000) - 86400) ?
+							res.status(200).send({
+								valid:	true
+							}):
+							res.status(200).send({
+								valid:	false
+							});
+                    }
+                }, err => {
+                    console.log(err);
+                    res.status(500).send({ error: 'server error' });
+                }
+            );
+    });
 };

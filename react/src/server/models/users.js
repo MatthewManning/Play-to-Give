@@ -28,7 +28,8 @@ let User = new Schema({
     'dob':          { type: String, default: ''},
     'charities':    [ { type: Schema.Types.ObjectId, ref: 'Charity'}],
     'games':        [ { type: Schema.Types.ObjectId, ref: 'Game'}],
-    'events':       [ { type: Schema.Types.ObjectId, ref: 'Event'}]
+    'events':       [ { type: Schema.Types.ObjectId, ref: 'Event'}],
+	'timestamp':	{ type: Date }
 });
 
 User.path('username').validate(function(value) {
