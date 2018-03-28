@@ -45,28 +45,35 @@ module.exports = (app) => {
                     return;
                 }
                 // Try to create the user
-                let user = new app.models.User(data);
-                user.save().then(
-                    () => {
-                        // Send the happy response back
-                        res.status(201).send({
-                            username:       data.username,
-                            primary_email:  data.primary_email
-                        });
-                    }, err => {
-                        console.log(err);
-                        // Error if username is already in use
-                        if (err.code === 11000) {
-                            if (err.message.indexOf('username_1') !== -1)
-                                res.status(400).send({error: 'username already in use'});
-                            if (err.message.indexOf('primary_email_1') !== -1)
-                                res.status(400).send({error: 'email address already in use'});
-                        }
-                        // Something else in the username failed
-                        else res.status(400).send({error: 'invalid username'});
+                app.models.Charity.findOne({charity_name: 'test'})
+                    .then(
+                        charity => {
+                            let user = new app.models.User(data);
+                            user.main_charity = charity;
+                            user.save().then(
+                                () => {
+                                    // Send the happy response back
+                                    res.status(201).send({
+                                        username:       data.username,
+                                        primary_email:  data.primary_email
+                                    });
+                                }, err => {
+                                    console.log(err);
+                                    // Error if username is already in use
+                                    if (err.code === 11000) {
+                                        if (err.message.indexOf('username_1') !== -1)
+                                            res.status(400).send({error: 'username already in use'});
+                                        if (err.message.indexOf('primary_email_1') !== -1)
+                                            res.status(400).send({error: 'email address already in use'});
+                                    }
+                                    // Something else in the username failed
+                                    else res.status(400).send({error: 'invalid username'});
 
-                    }
-                );
+                                }
+                            );
+                        }
+                    );
+
             }
         });
     });

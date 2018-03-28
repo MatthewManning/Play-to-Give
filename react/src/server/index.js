@@ -11,7 +11,8 @@ let path            = require('path'),
 
 paypal.configure({
     'mode': 'sandbox',
-    'client_id': 'AXNyaNk-cU4QvxtUq3g-_LBO22hiFggLx8i5-k-j1QWmqfuE9AWy06ThkkPOOpqtde-XHwUPwcYWLM3A'
+    'client_id': 'AXNyaNk-cU4QvxtUq3g-_LBO22hiFggLx8i5-k-j1QWmqfuE9AWy06ThkkPOOpqtde-XHwUPwcYWLM3A',
+    'client_secret': 'EJWTf0jfHdz25lmXzrpsTzx8AHR6nV4GRYI0Xzb7gbm5kIDxL2-BGY_jtU8bUDMSbwXieC8gLZ7t11Sf'
 });
 
 mongoose.Promise = global.Promise;
@@ -79,7 +80,6 @@ mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.
         console.log(err);
     });
 
-
 let server = app.listen(port, () => {
     console.log('Play to give listening on port ' + server.address().port);
     let rule = new schedule.RecurrenceRule();
@@ -89,38 +89,47 @@ let server = app.listen(port, () => {
             .then(
                 highscores => {
                     console.log(highscores[0]);
-                    app.models.User.findOne({username: highscores[0].owner})
+                    console.log(highscores[0].owner);
+                    app.models.User.find({username: highscores[0].owner})
                         .then(
                             user => {
-                                let charity = user.main_charity;
-                                let email = charity.paypal;
-                                let sender_batch_id = Math.random().toString(36).substring(9);
-                                let create_payout_json = {
-                                    "sender_batch_header": {
-                                        "sender_batch_id": sender_batch_id,
-                                        "email_subject": "You have a payment"
-                                    },
-                                    "items": [
-                                        {
-                                            "recipient_type": "EMAIL",
-                                            "amount": {
-                                                "value": 0.99,
-                                                "currency": "USD"
-                                            },
-                                            "receiver": email,
-                                            "note": "Charity donation",
-                                            "sender_item_id": "item_1"
-                                        }]
-                                };
-                                    paypal.payout.create(create_payout_json, function (error, payout) {
-                                    if (error) {
-                                        console.log(error.response);
-                                        throw error;
-                                    } else {
-                                        console.log("Create Payout Response");
-                                        console.log(payout);
-                                    }
-                                });
+                                console.log(user);
+                                let main_charity = user[0].main_charity;
+                                console.log(user[0].main_charity);
+                                app.models.Charity.find()
+                                    .then(
+                                        charity => {
+                                            console.log(charity);
+                                            let email = 'bengawel-charity@gmail.com';
+                                            let sender_batch_id = Math.random().toString(36).substring(9);
+                                            let create_payout_json = {
+                                                "sender_batch_header": {
+                                                    "sender_batch_id": sender_batch_id,
+                                                    "email_subject": "You have a payment"
+                                                },
+                                                "items": [
+                                                    {
+                                                        "recipient_type": "EMAIL",
+                                                        "amount": {
+                                                            "value": 0.99,
+                                                            "currency": "USD"
+                                                        },
+                                                        "receiver": email,
+                                                        "note": "Charity donation",
+                                                        "sender_item_id": "item_1"
+                                                    }]
+                                            };
+                                            paypal.payout.create(create_payout_json, function (error, payout) {
+                                                if (error) {
+                                                    console.log(error.response);
+                                                    throw error;
+                                                } else {
+                                                    console.log("Create Payout Response");
+                                                    console.log(payout);
+                                                }
+                                            });
+                                        }
+                                    );
                             }
                         )
                 }, err => {

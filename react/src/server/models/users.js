@@ -27,6 +27,7 @@ let User = new Schema({
     'salt':         { type: String, required: true },
     'dob':          { type: String, default: ''},
     'charities':    [ { type: Schema.Types.ObjectId, ref: 'Charity'}],
+    'main_charity': { type: Schema.Types.ObjectId, ref: 'Charity'},
     'games':        [ { type: Schema.Types.ObjectId, ref: 'Game'}],
     'events':       [ { type: Schema.Types.ObjectId, ref: 'Event'}],
 	'timestamp':	{ type: Date }
