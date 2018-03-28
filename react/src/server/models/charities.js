@@ -5,7 +5,7 @@ let Charity = new Schema({
     'charity_name' :    { type: String, required: true, index: { unique: true } },
     'picture':   { type: String, default: '' },
     'summary':     { type: String, default: '' },
-    'paypal':   {type: String, default: ''}
+    'paypal':   {type: String, default: 'bengawel-charity@gmail.com'}
 });
 
 module.exports = mongoose.model('Charity', Charity);
