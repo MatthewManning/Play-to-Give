@@ -45,7 +45,7 @@ module.exports = (app) => {
                     return;
                 }
                 // Try to create the user
-                app.models.Charity.findOne({charity_name: 'test'})
+                app.models.Charity.findOne({charity_name: 'test1'})
                     .then(
                         charity => {
                             let user = new app.models.User(data);
@@ -84,13 +84,21 @@ module.exports = (app) => {
                 user => {
                     if (!user) res.status(404).send({ error: `unknown user: ${req.params.username}` });
                     else {
-
-                        res.status(200).send({
-                            username:       user.username,
-                            primary_email:  user.primary_email,
-                            first_name:     user.first_name,
-                            last_name:      user.last_name
-                        });
+                        app.models.Charity.findOne({_id: user.main_charity})
+                            .then(
+                                charity => {
+                                    if (!charity) res.status(404).send({ error: `user does not have charity selected: ${req.params.username}` });
+                                    else {
+                                        res.status(200).send({
+                                            username:       user.username,
+                                            primary_email:  user.primary_email,
+                                            first_name:     user.first_name,
+                                            last_name:      user.last_name,
+                                            main_charity:   charity.charity_name
+                                        });
+                                    }
+                                }
+                            )
                     }
                 }, err => {
                     console.log(err);
@@ -99,6 +107,40 @@ module.exports = (app) => {
             );
     });
 
+    app.put('/v1/user/charity', (req, res) => {
+        if (!req.session.user) {
+            res.status(401).send({error: 'unauthorized'});
+        } else {
+            let schema = Joi.object().keys({
+                id: Joi.string()
+            });
+            Joi.validate(req.body, schema, {stripUnknown: true}, (err, data) => {
+                if (err) {
+                    const message = err.details[0].message;
+                    console.log(`User.update validation failure: ${message}`);
+                    res.status(400).send({error: message});
+                } else {
+                    console.log(data);
+                    app.models.Charity.findOne({_id: data.id})
+                        .then(charity => {
+                            const query = { username: req.session.user.username };
+                            app.models.User.findOne(query)
+                                .then(user => {
+                                    console.log(charity);
+                                    user.main_charity = charity;
+                                    user.save().then(
+                                        () => {
+                                            res.status(204).send({username: user.username})
+                                        }, err => {
+                                            res.status(500).end();
+                                        }
+                                    )
+                                })
+                        })
+                }
+            })
+        }
+    });
     app.put('/v1/user', (req, res) => {
         if (!req.session.user) {
             res.status(401).send({ error: 'unauthorized' });

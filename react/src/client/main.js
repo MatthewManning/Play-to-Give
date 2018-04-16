@@ -10,6 +10,8 @@ import Events 				from './components/events';
 import GameInput            from './components/gameinput';
 import HighScore            from './components/highscores';
 import SimpleDonate         from './components/simpledonate';
+import Profile              from './components/profile';
+import Edit                 from './components/edit';
 
 import './app.css'
 
@@ -32,6 +34,8 @@ class App extends Component {
                 <Route path="/gameinput" component={GameInput}/>
                 <Route path="/highscore" component={HighScore}/>
                 <Route path="/simpledonate" render={props => <SimpleDonate user={this.user}/>}/>
+                <Route exact path ="/profile/:username" render={props => <Profile user={this.user}/>}/>
+                <Route path="/profile/:username/edit" render={props => <Edit user={this.user}/>}/>
             </div>
         </BrowserRouter>;
 
