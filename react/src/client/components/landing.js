@@ -15,10 +15,10 @@ class Landing extends Component {
 	constructor(props) {
         super(props);
         this.state = { events: {}, charities: {}, games: {}};
-		
+
 		this.dateFormat = this.dateFormat.bind(this);
     }
-	
+
 	componentDidMount(){
 
 		$.ajax({
@@ -33,7 +33,7 @@ class Landing extends Component {
 			.fail(err => {
 				console.log(err.error);
 			});
-			
+
 		$.ajax({
 			url: `/v1/charities`,
 			method: "get",
@@ -46,7 +46,7 @@ class Landing extends Component {
 			.fail(err => {
 				console.log(err.error);
 			});
-			
+
 		$.ajax({
 			url: `/v1/games`,
 			method: "get",
@@ -59,15 +59,15 @@ class Landing extends Component {
 			.fail(err => {
 				console.log(err.error);
 			});
-			
+
 		/*$.ajax({
 			url : `/images/slideshow/`
 		})
 			.then(data => {
 				$(data).find("a").attr("href", function (i, val) {
-					if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+					if( val.match(/\.(jpe?g|png|gif)$/) ) {
 						this.state.slides.concat("<div><img src='"+ folder + val +"'></div>");
-					} 
+					}
 				})
 			})
 			.fail(err => {
@@ -75,7 +75,7 @@ class Landing extends Component {
 				console.log(err.error);
 			});*/
 	}
-	
+
 	dateFormat(d){
 		return ["January", "February", "March", "April", "May", "June",
 		 "July", "August", "September", "October", "November", "December"][d.getMonth()] +
@@ -83,7 +83,7 @@ class Landing extends Component {
 	}
 
 	render() {
-		
+
 		const settings = {
 			autoplaySpeed: 5000,
 			autoplay: true,
@@ -93,18 +93,18 @@ class Landing extends Component {
 			centerMode: true,
 			pauseOnHover: false
 		}
-		
+
 		//let slides_list = this.state.slides.length > 0 ?
 		//	this.state.slides : <div>No Images</div>;
-		
-		let event_list = this.state.events.length > 0 ? 
+
+		let event_list = this.state.events.length > 0 ?
 			this.state.events.map((e, index) => (<tr key = {index}>
 					<td style={{verticalAlign: 'middle', height:'50px'}}>{e.location}</td>
 					<td style={{verticalAlign: 'middle', height:'50px'}}><button className="button apricot hover-apple-core right" style={{width:'70%'}}>{this.dateFormat(new Date(e.date))}</button></td>
 				</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'50px'}}>No events</td></tr>;
-			
-		let charity_list = this.state.charities.length > 0 ? 
+
+		let charity_list = this.state.charities.length > 0 ?
 			this.state.charities.map((c, index) => (<tr key = {index}>
 					  <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={c.picture}/></td>
 					  <td style={{verticalAlign: 'middle', height:'100px'}}>{c.charity_name}</td>
@@ -112,8 +112,8 @@ class Landing extends Component {
 					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right">Select</button></td>
 					</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No charities</td></tr>;
-			
-		let game_list = this.state.games.length > 0 ? 
+
+		let game_list = this.state.games.length > 0 ?
 			this.state.games.map((g, index) => (
 			<tr key = {index}>
 				<td style={{verticalAlign: 'middle', height:'100px'}}><img src={g.picture} style={{maxWidth:'267px', maxHeight:'100px'}}/></td>
@@ -123,12 +123,12 @@ class Landing extends Component {
 			 </tr>
 			)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No games</td></tr>;
-			
+
         const page_html = <div className="content" style={{maxWidth:'2000px', marginTop:'46px'}}>
 			  <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
 			  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 			  <Slider style={{width:'100%'}} {...settings}>
-				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/just_monika_example.jpg"/></div>
+				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/2048_example.jpg"/></div>
 				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/rooster_teeth_example.jpg"/></div>
 				  <div style={{textAlign:'center'}}><img style={{width:'70vw', margin:'auto'}} src="/images/slideshow/trevor_project_example.jpg"/></div>
 			  </Slider>
@@ -141,7 +141,7 @@ class Landing extends Component {
 					  </thead>
 				  </table>
 			  </div>
-				
+
 			  <div className="blueberry" id="charities">
 				<div className="container content padding-64" style={{maxWidth:'90%'}}>
 				  <h2 className="wide center">CHARITIES</h2>
@@ -210,7 +210,7 @@ class Landing extends Component {
 				  </div>
 				</div>
 			  </div>
-			  
+
 			  <footer className="container padding-64 center opacity light-grey xlarge">
 				  <i className="fa fa-facebook-official hover-opacity"></i>
 				  <i className="fa fa-instagram hover-opacity"></i>
@@ -220,7 +220,7 @@ class Landing extends Component {
 				  <i className="fa fa-linkedin hover-opacity"></i>
 			  </footer>
 			</div>;
-        
+
 		return page_html;
     };
 }
