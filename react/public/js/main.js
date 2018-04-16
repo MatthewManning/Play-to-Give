@@ -497,8 +497,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_gameinput__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_highscores__ = __webpack_require__(260);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_simpledonate__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_css__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__app_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_2048__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_css__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__app_css__);
+
 
 
 
@@ -532,7 +534,8 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/events', component: __WEBPACK_IMPORTED_MODULE_6__components_events__["a" /* default */] }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/gameinput', component: __WEBPACK_IMPORTED_MODULE_7__components_gameinput__["a" /* default */] }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/highscore', component: __WEBPACK_IMPORTED_MODULE_8__components_highscores__["a" /* default */] }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/simpledonate', render: props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_simpledonate__["a" /* default */], { user: this.user }) })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/simpledonate', render: props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_simpledonate__["a" /* default */], { user: this.user }) }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["c" /* Route */], { path: '/2048', component: __WEBPACK_IMPORTED_MODULE_10__components_2048__["a" /* default */] })
             )
         );
     }
@@ -4913,7 +4916,7 @@ class SimpleDonate extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				)
 			),
 			donateModal,
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('iframe', { id: 'game', src: 'https://www.silvergames.com/en/2048/iframe', style: { width: "400px", height: "540px", marginLeft: 'auto', marginRight: 'auto' } })
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('iframe', { id: 'game', src: '/2048', style: { width: "400px", height: "540px", marginLeft: 'auto', marginRight: 'auto' } })
 		) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			{ className: 'content', style: { marginTop: '100px' } },
@@ -5531,12 +5534,215 @@ var series = exports.series = function series() {
 /***/ }),
 
 /***/ 267:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+
+
+class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { 'class': 'container' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { 'class': 'heading' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h1',
+            { 'class': 'title' },
+            '2048'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { 'class': 'scores-container' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { 'class': 'score-container' },
+              '0'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { 'class': 'best-container' },
+              '0'
+            )
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { 'class': 'above-game' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            { 'class': 'game-intro' },
+            'Join the numbers and get to the ',
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'strong',
+              null,
+              '2048 tile!'
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'a',
+            { 'class': 'restart-button' },
+            'New Game'
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { 'class': 'game-container' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { 'class': 'game-message' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { 'class': 'lower' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { 'class': 'keep-playing-button' },
+                'Keep going'
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { 'class': 'retry-button' },
+                'Try again'
+              )
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { 'class': 'grid-container' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { 'class': 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { 'class': 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { 'class': 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'div',
+              { 'class': 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+            )
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'tile-container' })
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          { 'class': 'game-explanation' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'strong',
+            { 'class': 'important' },
+            'How to play:'
+          ),
+          ' Use your ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'strong',
+            null,
+            'arrow keys'
+          ),
+          ' to move the tiles. When two tiles with the same number touch, they ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'strong',
+            null,
+            'merge into one!'
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'strong',
+            { 'class': 'important' },
+            'Note:'
+          ),
+          ' This site is the official version of 2048. You can play it on your phone via ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'a',
+            { href: 'http://git.io/2048' },
+            'http://git.io/2048.'
+          ),
+          ' All other apps or sites are derivatives or fakes, and should be used with caution.'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'p',
+          null,
+          'Created by ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'a',
+            { href: 'http://gabrielecirulli.com', target: '_blank' },
+            'Gabriele Cirulli.'
+          ),
+          ' Based on ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'a',
+            { href: 'https://itunes.apple.com/us/app/1024!/id823499224', target: '_blank' },
+            '1024 by Veewo Studio'
+          ),
+          ' and conceptually similar to ',
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'a',
+            { href: 'http://asherv.com/threes/', target: '_blank' },
+            'Threes by Asher Vollmer.'
+          )
+        )
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/bind_polyfill.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/classlist_polyfill.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/animframe_polyfill.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/keyboard_input_manager.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/html_actuator.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/grid.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/tile.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/local_storage_manager.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/game_manager.js' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/application.js' })
+    );
+  }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Twenty48);
+
+/***/ }),
+
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(268);
+var content = __webpack_require__(269);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -5544,7 +5750,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(270)(content, options);
+var update = __webpack_require__(271)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -5562,10 +5768,10 @@ if(false) {
 
 /***/ }),
 
-/***/ 268:
+/***/ 269:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(269)(false);
+exports = module.exports = __webpack_require__(270)(false);
 // imports
 
 
@@ -5577,7 +5783,7 @@ exports.push([module.i, "#loginModalHeader {\r\n    width: 100%;\r\n}\r\n\r\n#lo
 
 /***/ }),
 
-/***/ 269:
+/***/ 270:
 /***/ (function(module, exports) {
 
 /*
@@ -5660,7 +5866,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 270:
+/***/ 271:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -5706,7 +5912,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(271);
+var	fixUrls = __webpack_require__(272);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -6020,7 +6226,7 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 
-/***/ 271:
+/***/ 272:
 /***/ (function(module, exports) {
 
 
