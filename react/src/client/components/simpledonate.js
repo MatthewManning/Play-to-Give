@@ -148,7 +148,7 @@ class SimpleDonate extends Component {
 					  </table>
 				  </div>
 				{donateModal}
-				<iframe id="game" src="/2048" style={{width:"400px", height:"540px", marginLeft:'auto', marginRight:'auto'}}></iframe>
+				<iframe id="game" src="/2048" style={{width:"100%", height:"100%", marginLeft:'auto', marginRight:'auto'}}></iframe>
 			</div>:
 			<div className="content" style={{marginTop:'100px'}}>
 				<div className="alert alert-warning">You must log in to play!</div>
