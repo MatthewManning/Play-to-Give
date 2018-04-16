@@ -5555,36 +5555,36 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
       null,
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { 'class': 'container' },
+        { className: 'container' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { 'class': 'heading' },
+          { className: 'heading' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h1',
-            { 'class': 'title' },
+            { className: 'title' },
             '2048'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { 'class': 'scores-container' },
+            { className: 'scores-container' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'score-container' },
+              { className: 'score-container' },
               '0'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'best-container' },
+              { className: 'best-container' },
               '0'
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { 'class': 'above-game' },
+          { className: 'above-game' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'p',
-            { 'class': 'game-intro' },
+            { className: 'game-intro' },
             'Join the numbers and get to the ',
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'strong',
@@ -5594,76 +5594,76 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'a',
-            { 'class': 'restart-button' },
+            { className: 'restart-button' },
             'New Game'
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { 'class': 'game-container' },
+          { className: 'game-container' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { 'class': 'game-message' },
+            { className: 'game-message' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', null),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'lower' },
+              { className: 'lower' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                { 'class': 'keep-playing-button' },
+                { className: 'keep-playing-button' },
                 'Keep going'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                { 'class': 'retry-button' },
+                { className: 'retry-button' },
                 'Try again'
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { 'class': 'grid-container' },
+            { className: 'grid-container' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'tile-container' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'tile-container' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
-          { 'class': 'game-explanation' },
+          { className: 'game-explanation' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'strong',
-            { 'class': 'important' },
+            { className: 'important' },
             'How to play:'
           ),
           ' Use your ',
@@ -5684,7 +5684,7 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
           null,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'strong',
-            { 'class': 'important' },
+            { className: 'important' },
             'Note:'
           ),
           ' This site is the official version of 2048. You can play it on your phone via ',
