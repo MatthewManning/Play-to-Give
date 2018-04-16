@@ -5737,22 +5737,6 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
           null,
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'strong',
-            { className: 'important' },
-            'Note:'
-          ),
-          ' This site is the official version of 2048. You can play it on your phone via ',
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'a',
-            { href: 'http://git.io/2048' },
-            'http://git.io/2048.'
-          ),
-          ' All other apps or sites are derivatives or fakes, and should be used with caution.'
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'p',
-          null,
           'Created by ',
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'a',
