@@ -7,7 +7,7 @@ class SimpleDonate extends Component {
         super(props);
     	this.donateClick = this.donateClick.bind(this);
 		this.modalClick = this.modalClick.bind(this);
-		
+
 		 this.state = {games: {}};
 	}
 
@@ -15,7 +15,7 @@ class SimpleDonate extends Component {
 	componentDidMount(){
 		let game = document.getElementById('game');
 		game.style.display = 'none';
-		
+
 		$.ajax({
 			url: `/v1/games`,
 			method: "get",
@@ -27,9 +27,9 @@ class SimpleDonate extends Component {
 				console.log(err.error);
 			});
 	}
-		
+
 	donateClick(username) {
-		
+
 		// check that the user has paid,
 		// if they have, show the game
 		$.ajax({
@@ -38,10 +38,10 @@ class SimpleDonate extends Component {
 			}).then(data => {
 				if(data.valid){
 					console.log("user has paid");
-					
+
 					let game = document.getElementById('game');
 					game.style.display = 'block';
-					
+
 					let play = document.getElementById('play');
 					play.style.display = 'none';
 				} else {
@@ -66,17 +66,17 @@ class SimpleDonate extends Component {
         let env = 'sandbox';
         let currency = 'USD';
         let total = 1;
-		
+
 		const user = this.props.user.getUser();
         const onSuccess = (payment) => {
             console.log("The payment was successful!", payment);
-			
+
 			// get the time the user paid
 			const data = {
 				username: user.username,
 				timestamp: new Date().getTime()
 			};
-				
+
 			//set some state on user account info via api call to let them play games
 			$.ajax({
 				url: '/v1/user/timestamp',
@@ -100,12 +100,12 @@ class SimpleDonate extends Component {
         const client = {
 			// jacob's sandbox facilitator
 			//sandbox:	'AQ-fj_iUQju9vVqDH5WQTD1ZZrS6YiwWn7KlLuq-Pnq4Lya5UvCf4_w2NQRVC34SvDJ0FBj9SBs3gBaX',
-			
+
             sandbox:    'AXNyaNk-cU4QvxtUq3g-_LBO22hiFggLx8i5-k-j1QWmqfuE9AWy06ThkkPOOpqtde-XHwUPwcYWLM3A',
             production: 'YOUR-PRODUCTION-APP-ID',
         };
-		
-		let game_list = this.state.games.length > 0 ? 
+
+		let game_list = this.state.games.length > 0 ?
 			this.state.games.map((g, index) => (
 			<tr key = {index}>
 				<td style={{verticalAlign: 'middle', height:'100px'}}><img src={g.picture} style={{maxWidth:'267px', maxHeight:'100px'}}/></td>
@@ -115,7 +115,7 @@ class SimpleDonate extends Component {
 			 </tr>
 			)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No games</td></tr>;
-		
+
 		// pop-up asking user to donate
 		const donateModal = <div id="donateModal" className="modal">
 			<div className="modal-content animate-top card-4">
@@ -127,14 +127,14 @@ class SimpleDonate extends Component {
 				  <div className="container-fluid">
 					<div className="row">
 					  <div className="col-sm-2 col-sm-offset-5 text-center">
-						<PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />       
+						<PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
 					  </div>
 					</div>
 				  </div>
 				</div>
 			</div>
 		</div>;
-		
+
         return user.username !== '' ?
 			<div className="content" style={{marginTop:'46px'}}>
 				<div id="errorMsg"></div>
@@ -148,7 +148,7 @@ class SimpleDonate extends Component {
 					  </table>
 				  </div>
 				{donateModal}
-				<iframe id="game" src="https://www.silvergames.com/en/2048/iframe" style={{width:"400px", height:"540px", marginLeft:'auto', marginRight:'auto'}}></iframe>
+				<iframe id="game" src="/2048" style={{width:"400px", height:"540px", marginLeft:'auto', marginRight:'auto'}}></iframe>
 			</div>:
 			<div className="content" style={{marginTop:'100px'}}>
 				<div className="alert alert-warning">You must log in to play!</div>
