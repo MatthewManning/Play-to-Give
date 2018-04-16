@@ -11,7 +11,7 @@ class Twenty48 extends Component{
   render(){
     return (
       <div>
-      <link href="/css/main.css" rel="stylesheet" type="text/css">
+      <link href="/css/main.css" rel="stylesheet" type="text/css"></link>
       <div className="container">
           <div className="heading">
             <h1 className="title">2048</h1>
