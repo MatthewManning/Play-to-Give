@@ -5549,42 +5549,97 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     super(props);
   }
 
+  componentDidMount() {
+    const script = document.createElement("script");
+    script.src = "http://localhost:9000/js/bind_polyfill.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    const script2 = document.createElement("script");
+    script2.src = "http://localhost:9000/js/classlist_polyfill.js";
+    script2.async = true;
+    document.body.appendChild(script2);
+
+    const script3 = document.createElement("script");
+    script3.src = "http://localhost:9000/js/animframe_polyfill.js";
+    script3.async = true;
+    document.body.appendChild(script3);
+
+    const script4 = document.createElement("script");
+    script4.src = "http://localhost:9000/js/keyboard_input_manager.js";
+    script4.async = true;
+    document.getElementById('content').appendChild(script4);
+
+    const script5 = document.createElement("script");
+    script5.src = "http://localhost:9000/js/html_actuator.js";
+    script5.async = true;
+    document.body.appendChild(script5);
+
+    const script6 = document.createElement("script");
+    script6.src = "http://localhost:9000/js/grid.js";
+    script6.async = true;
+    document.body.appendChild(script6);
+
+    const script7 = document.createElement("script");
+    script7.src = "http://localhost:9000/js/tile.js";
+    script7.async = true;
+    document.body.appendChild(script7);
+
+    const script8 = document.createElement("script");
+    script8.src = "http://localhost:9000/js/local_storage_manager.js";
+    script8.async = true;
+    document.body.appendChild(script8);
+
+    const script9 = document.createElement("script");
+    script9.src = "http://localhost:9000/js/game_manager.js";
+    script9.async = true;
+    document.body.appendChild(script9);
+
+    const script10 = document.createElement("script");
+    script10.src = "http://localhost:9000/js/application.js";
+    script10.async = true;
+    document.body.appendChild(script10);
+  }
+
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
-      null,
+      { id: 'content' },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { href: '/css/main.css', rel: 'stylesheet', type: 'text/css' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { href: '/css/main.scss', rel: 'stylesheet', type: 'text/css' }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('link', { href: '/css/helper.scss', rel: 'stylesheet', type: 'text/css' }),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
-        { 'class': 'container' },
+        { className: 'container' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { 'class': 'heading' },
+          { className: 'heading' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'h1',
-            { 'class': 'title' },
+            { className: 'title' },
             '2048'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { 'class': 'scores-container' },
+            { className: 'scores-container' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'score-container' },
+              { className: 'score-container' },
               '0'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'best-container' },
+              { className: 'best-container' },
               '0'
             )
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { 'class': 'above-game' },
+          { className: 'above-game' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'p',
-            { 'class': 'game-intro' },
+            { className: 'game-intro' },
             'Join the numbers and get to the ',
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'strong',
@@ -5594,76 +5649,76 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'a',
-            { 'class': 'restart-button' },
+            { className: 'restart-button' },
             'New Game'
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
-          { 'class': 'game-container' },
+          { className: 'game-container' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { 'class': 'game-message' },
+            { className: 'game-message' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', null),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'lower' },
+              { className: 'lower' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                { 'class': 'keep-playing-button' },
+                { className: 'keep-playing-button' },
                 'Keep going'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'a',
-                { 'class': 'retry-button' },
+                { className: 'retry-button' },
                 'Try again'
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            { 'class': 'grid-container' },
+            { className: 'grid-container' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { 'class': 'grid-row' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' }),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'grid-cell' })
+              { className: 'grid-row' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'grid-cell' })
             )
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { 'class': 'tile-container' })
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'tile-container' })
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'p',
-          { 'class': 'game-explanation' },
+          { className: 'game-explanation' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'strong',
-            { 'class': 'important' },
+            { className: 'important' },
             'How to play:'
           ),
           ' Use your ',
@@ -5684,7 +5739,7 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
           null,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'strong',
-            { 'class': 'important' },
+            { className: 'important' },
             'Note:'
           ),
           ' This site is the official version of 2048. You can play it on your phone via ',
@@ -5717,17 +5772,7 @@ class Twenty48 extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             'Threes by Asher Vollmer.'
           )
         )
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/bind_polyfill.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/classlist_polyfill.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/animframe_polyfill.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/keyboard_input_manager.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/html_actuator.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/grid.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/tile.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/local_storage_manager.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/game_manager.js' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: '/js/application.js' })
+      )
     );
   }
 }
