@@ -88,19 +88,15 @@ let server = app.listen(port, () => {
         app.models.PlayerGame.find().sort({score: -1}).limit(1)
             .then(
                 highscores => {
-                    console.log(highscores[0]);
-                    console.log(highscores[0].owner);
                     app.models.User.find({username: highscores[0].owner})
                         .then(
                             user => {
-                                console.log(user);
                                 let main_charity = user[0].main_charity;
                                 console.log(user[0].main_charity);
-                                app.models.Charity.find()
+                                app.models.Charity.find({_id: main_charity})
                                     .then(
                                         charity => {
-                                            console.log(charity);
-                                            let email = 'bengawel-charity@gmail.com';
+                                            let email = charity[0].paypal;
                                             let sender_batch_id = Math.random().toString(36).substring(9);
                                             let create_payout_json = {
                                                 "sender_batch_header": {
@@ -135,6 +131,9 @@ let server = app.listen(port, () => {
                 }, err => {
                     console.log(err)
                 }
+            )
+            .then(
+                app.models.PlayerGame.remove()
             )
     })
 });
