@@ -56,11 +56,11 @@ class Edit extends Component {
 
     changeCharity(ev) {
         ev.preventDefault();
-        console.log(ev.target.id);
+        let charityId = ev.target.id;
         $.ajax({
             url: "/v1/user/charity",
             method: 'put',
-            data: ev.target.id
+            data: {charityId}
         })
             .then(() => {
                 this.props.history.push(`/profile/${this.props.match.params.username}`);

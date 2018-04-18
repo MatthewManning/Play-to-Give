@@ -6311,8 +6311,6 @@ class Profile extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             method: "get"
         }).then(data => {
             this.setState({ user: data });
-            console.log(data);
-            console.log(this.state.user);
         }).fail(err => {
             console.log(err);
         });
@@ -6329,7 +6327,6 @@ class Profile extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     render() {
         // Is the logged in user viewing their own profile
         const user = this.props.match.params.username;
-        console.log(user);
         const isUser = this.props.match.params.username === this.props.user.getUser().username;
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
@@ -6505,11 +6502,11 @@ class Edit extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
     changeCharity(ev) {
         ev.preventDefault();
-        console.log(ev.target.id);
+        let charityId = ev.target.id;
         $.ajax({
             url: "/v1/user/charity",
             method: 'put',
-            data: ev.target.id
+            data: { charityId }
         }).then(() => {
             this.props.history.push(`/profile/${this.props.match.params.username}`);
         }).fail(err => {

@@ -19,8 +19,6 @@ class Profile extends Component {
         })
             .then(data => {
                 this.setState({ user: data });
-                console.log(data);
-                console.log(this.state.user)
             })
             .fail(err => {
                 console.log(err)
@@ -38,7 +36,6 @@ class Profile extends Component {
     render() {
         // Is the logged in user viewing their own profile
         const user = this.props.match.params.username;
-        console.log(user);
         const isUser = this.props.match.params.username === this.props.user.getUser().username;
         return <div className="row content" style={{marginTop: 100}}>
             <div className="col-xs-4">

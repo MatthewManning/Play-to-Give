@@ -112,7 +112,7 @@ module.exports = (app) => {
             res.status(401).send({error: 'unauthorized'});
         } else {
             let schema = Joi.object().keys({
-                id: Joi.string()
+                charityId: Joi.string()
             });
             Joi.validate(req.body, schema, {stripUnknown: true}, (err, data) => {
                 if (err) {
@@ -120,13 +120,11 @@ module.exports = (app) => {
                     console.log(`User.update validation failure: ${message}`);
                     res.status(400).send({error: message});
                 } else {
-                    console.log(data);
-                    app.models.Charity.findOne({_id: data.id})
+                    app.models.Charity.findOne({_id: data.charityId})
                         .then(charity => {
                             const query = { username: req.session.user.username };
                             app.models.User.findOne(query)
                                 .then(user => {
-                                    console.log(charity);
                                     user.main_charity = charity;
                                     user.save().then(
                                         () => {
