@@ -28,7 +28,17 @@ GameManager.prototype.keepPlaying = function () {
 
 // Return true if the game is lost, or has won and the user hasn't kept playing
 GameManager.prototype.isGameTerminated = function () {
-  return this.over || (this.won && !this.keepPlaying);
+  
+  if(this.over || (this.won && !this.keepPlaying)){
+	  var best = this.score;
+	  var evt = new MessageEvent('score', {data: best});
+	  window.dispatchEvent(evt);
+	  return true;
+  } else {
+	  return false;
+  }
+  
+  //return this.over || (this.won && !this.keepPlaying);
 };
 
 // Set up the game

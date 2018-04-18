@@ -10,7 +10,7 @@ import Events 				from './components/events';
 import GameInput            from './components/gameinput';
 import HighScore            from './components/highscores';
 import SimpleDonate         from './components/simpledonate';
-import Twenty48                 from './components/2048';
+import Twenty48             from './components/2048';
 
 import './app.css'
 
@@ -33,7 +33,6 @@ class App extends Component {
                 <Route path="/gameinput" component={GameInput}/>
                 <Route path="/highscore" component={HighScore}/>
                 <Route path="/simpledonate" render={props => <SimpleDonate user={this.user}/>}/>
-                <Route path="/2048" component={Twenty48}/>
             </div>
         </BrowserRouter>;
 
