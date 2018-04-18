@@ -10,6 +10,12 @@ class Profile extends Component {
         this.state = {
             user: {}
         }
+        this.playGame = this.playGame.bind(this);
+    }
+
+    playGame(ev) {
+        ev.preventDefault();
+        this.props.history.push('/simpledonate');
     }
 
     fetchUser(username) {
@@ -60,6 +66,9 @@ class Profile extends Component {
                             <p>{this.state.user.main_charity}</p>
                         </div>
                     </div>
+                </div>
+                <div className="row">
+                    <button onClick={this.playGame} className="button block blueberry hover-apple-core padding-16 section right">Play Game </button>
                 </div>
             </div>
         </div>

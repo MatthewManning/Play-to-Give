@@ -5674,7 +5674,7 @@ class SimpleDonate extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				)
 			),
 			donateModal,
-			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('iframe', { id: 'game', src: '/2048', style: { width: "400px", height: "540px", marginLeft: 'auto', marginRight: 'auto' } })
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('iframe', { id: 'game', src: '/2048', style: { width: "100%", height: "100%", marginLeft: 'auto', marginRight: 'auto' } })
 		) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			{ className: 'content', style: { marginTop: '100px' } },
@@ -6303,6 +6303,12 @@ class Profile extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
         this.state = {
             user: {}
         };
+        this.playGame = this.playGame.bind(this);
+    }
+
+    playGame(ev) {
+        ev.preventDefault();
+        this.props.history.push('/simpledonate');
     }
 
     fetchUser(username) {
@@ -6436,6 +6442,15 @@ class Profile extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                                 this.state.user.main_charity
                             )
                         )
+                    )
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { className: 'row' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'button',
+                        { onClick: this.playGame, className: 'button block blueberry hover-apple-core padding-16 section right' },
+                        'Play Game '
                     )
                 )
             )
