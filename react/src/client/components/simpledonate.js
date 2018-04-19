@@ -1,6 +1,7 @@
 import React, { Component }			from 'react';
 import { Link, withRouter }           from 'react-router-dom';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
+import Twenty48 from "./2048"
 
 class SimpleDonate extends Component {
     constructor(props) {
@@ -15,6 +16,26 @@ class SimpleDonate extends Component {
 	componentDidMount(){
 		let game = document.getElementById('game');
 		game.style.display = 'none';
+		
+		// watch for game completion
+		window.addEventListener('score', function(e) { 
+			console.log(e.data);
+			
+			const data = {
+				score: e.data
+			};
+			
+			$.ajax({
+				url: `/v1/game/create`,
+				method: 'post',
+				data: data
+			}).then(data => {
+				console.log('score updated');
+			}).fail(err => {
+				let errorEl = document.getElementById('errorMsg');
+				errorEl.innerHTML = `Error:  ${err.responseJSON.error}`;
+			})
+		}, false);
 
 		$.ajax({
 			url: `/v1/games`,
@@ -41,6 +62,7 @@ class SimpleDonate extends Component {
 
 					let game = document.getElementById('game');
 					game.style.display = 'block';
+					ReactDOM.render(<Twenty48/>, game);
 
 					let play = document.getElementById('play');
 					play.style.display = 'none';
@@ -148,7 +170,7 @@ class SimpleDonate extends Component {
 					  </table>
 				  </div>
 				{donateModal}
-				<iframe id="game" src="/2048" style={{width:"100%", height:"100%", marginLeft:'auto', marginRight:'auto'}}></iframe>
+				<div id="game"></div>
 			</div>:
 			<div className="content" style={{marginTop:'100px'}}>
 				<div className="alert alert-warning">You must log in to play!</div>
