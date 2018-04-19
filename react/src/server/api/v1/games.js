@@ -118,4 +118,17 @@ module.exports = app => {
                 }
             );
     });
+
+    app.get('/v1/games/:game', (req, res) => {
+        app.models.Games.findOne({ _id: req.params.game})
+            .then(
+                game => {
+                    if (!game) res.status(404).send({error: `unknown game: ${req.params.game}`});
+                    else res.status(200).send({game: game});
+                }, err => {
+                    console.log(err);
+                    res.status(500).send({error: 'server error'})
+                }
+            )
+    })
 };
