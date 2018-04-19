@@ -83,7 +83,7 @@ mongoose.connect('mongodb://heroku_zddqcgjh:dj1v0lsvrcofdjgpntl0dljnpg@ds121192.
 let server = app.listen(port, () => {
     console.log('Play to give listening on port ' + server.address().port);
     let rule = new schedule.RecurrenceRule();
-    rule.minute = 56;
+    rule.hour = 0;
     let payout = schedule.scheduleJob(rule, function() {
         app.models.PlayerGame.find().sort({score: -1}).limit(1)
             .then(
@@ -124,6 +124,7 @@ let server = app.listen(port, () => {
                                                     console.log(payout);
                                                 }
                                             });
+                                            app.models.PlayerGame.remove({}).then(()=> {console.log('should have removed games')});
                                         }
                                     );
                             }
@@ -132,9 +133,6 @@ let server = app.listen(port, () => {
                     console.log(err)
                 }
             )
-            .then( () => {
-                console.log('should remove games');
-                app.models.PlayerGame.remove({});
-            })
+
     })
 });
