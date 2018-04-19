@@ -210,12 +210,14 @@ module.exports = (app) => {
                     if (!user) res.status(404).send({ error: `unknown user: ${req.params.username}` });
                     else {
 						
-						user.timestamp > ((new Date().getTime() / 1000) - 86400) ?
+						(new Date(user.timestamp).getTime() / 1000) > ((new Date().getTime() / 1000) - 86400) ?
 							res.status(200).send({
-								valid:	true
+								valid:	true,
+								ts: user.timestamp
 							}):
 							res.status(200).send({
-								valid:	false
+								valid:	false,
+								ts: user.timestamp
 							});
                     }
                 }, err => {
