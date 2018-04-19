@@ -7,7 +7,8 @@ import Slider					    from 'react-slick';
 const Event = ({ event, index}) => {
 	return <tr key={index}>
 		<td style={{verticalAlign: 'middle', height:'50px'}}>{event.location}</td>
-		<td style={{verticalAlign: 'middle', height:'50px'}}><button className='button apricot hover-apple-core right' style={{width:'70%'}}>{event.date}</button></td>
+		<td style={{verticalAlign: 'middle', height:'50px'}}><a className='button apricot hover-apple-core right'
+		href= "/event/" style={{width:'70%'}}>{event.date}</a></td>
 	</tr>
 };
 
@@ -100,7 +101,8 @@ class Landing extends Component {
 		let event_list = this.state.events.length > 0 ?
 			this.state.events.map((e, index) => (<tr key = {index}>
 					<td style={{verticalAlign: 'middle', height:'50px'}}>{e.location}</td>
-					<td style={{verticalAlign: 'middle', height:'50px'}}><button className="button apricot hover-apple-core right" style={{width:'70%'}}>{this.dateFormat(new Date(e.date))}</button></td>
+					<td style={{verticalAlign: 'middle', height:'50px'}}><a className="button apricot hover-apple-core right"
+					href="/event/" style={{width:'70%'}}>{this.dateFormat(new Date(e.date))}</a></td>
 				</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'50px'}}>No events</td></tr>;
 
@@ -108,8 +110,8 @@ class Landing extends Component {
 			this.state.charities.map((c, index) => (<tr key = {index}>
 					  <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={c.picture}/></td>
 					  <td style={{verticalAlign: 'middle', height:'100px'}}>{c.charity_name}</td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right">Select</button></td>
+					  <td style={{verticalAlign: 'middle', height:'100px'}}><a className="button blueberry hover-apple-core right" href="/charity/">Learn More</a></td>
+					  <td style={{verticalAlign: 'middle', height:'100px'}}><a className="button apricot hover-apple-core right" href="/charity/">Select</a></td>
 					</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No charities</td></tr>;
 
@@ -118,8 +120,8 @@ class Landing extends Component {
 			<tr key = {index}>
 				<td style={{verticalAlign: 'middle', height:'100px'}}><img src={g.picture} style={{maxWidth:'267px', maxHeight:'100px'}}/></td>
 				<td style={{verticalAlign: 'middle', height:'100px'}}>{g.game_name}</td>
-				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
-				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right">Play</button></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><a className="button blueberry hover-apple-core right" href="/game/">Learn More</a></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><a className="button apricot hover-apple-core right" href="/game/">Play</a></td>
 			 </tr>
 			)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No games</td></tr>;
