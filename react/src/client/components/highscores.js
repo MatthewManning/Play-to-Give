@@ -9,7 +9,7 @@ class HighScore extends Component {
 
     componentDidMount() {
         $.ajax({
-            url: '/v1/game/highscores',
+            url: `/v1/game/highscores`,
             method: 'get'
         })
             .then(data => {

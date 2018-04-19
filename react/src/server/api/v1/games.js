@@ -71,20 +71,36 @@ module.exports = app => {
                    end: Date.now(),
                    active: false
                };
-	           let game = new app.models.PlayerGame(newGame);
-	           game.save(err =>  {
-	               if (err) {
-	                   console.log(`Game.create save failure: ${err}`);
-	                   res.status(400).send({error: 'failure creating game'});
-                   } else {
-                       const query = { $push: { games: game._id }};
-                       app.models.User.findOneAndUpdate({ _id: req.session.user._id }, query, () => {
-                           res.status(201).send({
-                               id: game._id
-                           });
-                       });
-                   }
-               })
+			   
+			   // check the current user highscore
+			   app.models.PlayerGame.find({owner:  req.session.user.username}).sort({score: -1}).limit(1)
+				   .then(highscore => {
+					   console.log(highscore[0]);
+					   if (typeof highscore[0] == 'undefined' || data.score > highscore[0].score){
+					   
+						   // remove all old highscores and save the new one
+						   app.models.PlayerGame.remove({owner:  req.session.user.username});
+						   let game = new app.models.PlayerGame(newGame);
+						   game.save(err =>  {
+							   if (err) {
+								   console.log(`Game.create save failure: ${err}`);
+								   res.status(400).send({error: 'failure creating game'});
+							   } else {
+								   const query = { $push: { games: game._id }};
+								   app.models.User.findOneAndUpdate({ _id: req.session.user._id }, query, () => {
+									   res.status(201).send({
+										   id: game._id
+									   });
+								   });
+							   }
+						   });
+					   } else {
+						   // current user highscore was better, no need to update
+						   res.status(304).send();
+					   }
+				   }, err => {
+                    console.log(err)
+                })
            }
        })
     });

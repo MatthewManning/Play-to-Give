@@ -35,11 +35,11 @@ class App extends Component {
                 <Route path="/gameinput" component={GameInput}/>
                 <Route path="/highscore" component={HighScore}/>
                 <Route path="/simpledonate" render={props => <SimpleDonate user={this.user}/>}/>
-
                 <Route exact path ="/profile/:username" render={props => <Profile user={this.user}/>}/>
                 <Route path="/profile/:username/edit" render={props => <Edit user={this.user}/>}/>
 
                 <Route path="/2048" component={Twenty48}/>
+
             </div>
         </BrowserRouter>;
 
