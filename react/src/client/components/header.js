@@ -55,6 +55,8 @@ class Header extends Component {
     render() {
 		const img_source = "/images/d-pad_example.png";
 		const user = this.props.user.getUser();
+		const profileLink = "/profile/" + user.username;
+		console.log(user);
 		const loginModal = <div id="loginModal" className="modal">
 			<div className="modal-content animate-top card-4">
 				<header id="loginModalHeader" className="container blueberry center padding-32">
@@ -89,6 +91,7 @@ class Header extends Component {
 					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">GAMES</Link>
 					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">ABOUT US</Link>
 					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">CONTACT</Link>
+					<Link to={profileLink} className="bar-item button hover-apple-core padding-large hide-small">PROFILE</Link>
 					<button className="bar-item button padding-large hover-apple-core hide-small right" onClick={this.logout}>Logout</button>
 					{loginModal}
 				</nav>;

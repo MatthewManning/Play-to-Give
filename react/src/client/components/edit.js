@@ -88,6 +88,7 @@ class Edit extends Component {
                     <div className="center-block">
                         <p id="errorMsg" className="bg-danger"/>
                     </div>
+                    <h2>Change your name:</h2>
                     <form className="form-horizontal">
                         <div className="form-group">
                             <label className="col-sm-2 control-label" htmlFor="first_name">First Name:</label>
@@ -118,7 +119,7 @@ class Edit extends Component {
                 </div>
                 <div className="col-xs-2"/>
             </div>:
-            <div>
+            <div className="row" style={{margin: 100}}>
                 <h4>You must be logged in as this user to edit this profile</h4>
             </div>;
         return <div>

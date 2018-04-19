@@ -4708,6 +4708,8 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 	render() {
 		const img_source = "/images/d-pad_example.png";
 		const user = this.props.user.getUser();
+		const profileLink = "/profile/" + user.username;
+		console.log(user);
 		const loginModal = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			'div',
 			{ id: 'loginModal', className: 'modal' },
@@ -4846,6 +4848,11 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
 				{ to: '/', className: 'bar-item button hover-apple-core padding-large hide-small' },
 				'CONTACT'
+			),
+			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+				{ to: profileLink, className: 'bar-item button hover-apple-core padding-large hide-small' },
+				'PROFILE'
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'button',
@@ -6585,6 +6592,11 @@ class Edit extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { id: 'errorMsg', className: 'bg-danger' })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'h2',
+                    null,
+                    'Change your name:'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'form',
                     { className: 'form-horizontal' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -6651,7 +6663,7 @@ class Edit extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'col-xs-2' })
         ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
-            null,
+            { className: 'row', style: { margin: 100 } },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h4',
                 null,
