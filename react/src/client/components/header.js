@@ -74,21 +74,21 @@ class Header extends Component {
 		const header = user.username === '' ?
 				<nav className="bar blueberry card">
 					<Link to="/" className="bar-item button hover-apple-core padding-large"><img style={{height: '25px'}} src={img_source}/> PLAY TO GIVE</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">EVENTS</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">CHARITIES</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">GAMES</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">ABOUT US</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">CONTACT</Link>
+					<a href="#events" className="bar-item button hover-apple-core padding-large hide-small">EVENTS</a>
+					<a href="#charities" className="bar-item button hover-apple-core padding-large hide-small">CHARITIES</a>
+					<a href="#games" className="bar-item button hover-apple-core padding-large hide-small">GAMES</a>
+					<a href="/#about" className="bar-item button hover-apple-core padding-large hide-small">ABOUT US</a>
+					<a href="/#contact" className="bar-item button hover-apple-core padding-large hide-small">CONTACT</a>
 					<button className="bar-item button padding-large hover-apple-core hide-small right" onClick={this.loginClick}>login / sign up</button>
 					{loginModal}
 				</nav>:
 				<nav className="bar blueberry card">
 					<Link to="/" className="bar-item button hover-apple-core padding-large"><img style={{height: '25px'}} src={img_source}/> PLAY TO GIVE</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">EVENTS</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">CHARITIES</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">GAMES</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">ABOUT US</Link>
-					<Link to="/" className="bar-item button hover-apple-core padding-large hide-small">CONTACT</Link>
+					<a href="/#events" className="bar-item button hover-apple-core padding-large hide-small">EVENTS</a>
+					<a href="/#charities" className="bar-item button hover-apple-core padding-large hide-small">CHARITIES</a>
+					<a href="/#games" className="bar-item button hover-apple-core padding-large hide-small">GAMES</a>
+					<a href="/#about" className="bar-item button hover-apple-core padding-large hide-small">ABOUT US</a>
+					<a href="/#contact" className="bar-item button hover-apple-core padding-large hide-small">CONTACT</a>
 					<button className="bar-item button padding-large hover-apple-core hide-small right" onClick={this.logout}>Logout</button>
 					{loginModal}
 				</nav>;
