@@ -2,15 +2,19 @@
 
 import React, { Component }			from 'react';
 import Slider					    from 'react-slick';
+import { Link } from 'react-router-dom';
 
 
 const Event = ({ event, index}) => {
+	const url = `/event/${event.id}`;
 	return <tr key={index}>
 		<td style={{verticalAlign: 'middle', height:'50px'}}>{event.location}</td>
-		<td style={{verticalAlign: 'middle', height:'50px'}}><a className='button apricot hover-apple-core right'
-		href= "/event/" style={{width:'70%'}}>{event.date}</a></td>
+		<td style={{verticalAlign: 'middle', height:'50px'}}><Link className='button apricot hover-apple-core right'
+		to= {url} style={{width:'70%'}}>{event.date}</Link></td>
 	</tr>
 };
+
+
 
 class Landing extends Component {
 	constructor(props) {
@@ -65,7 +69,7 @@ class Landing extends Component {
 			url : `/images/slideshow/`
 		})
 			.then(data => {
-				$(data).find("a").attr("href", function (i, val) {
+				$(data).find("a").attr("to", function (i, val) {
 					if( val.match(/\.(jpe?g|png|gif)$/) ) {
 						this.state.slides.concat("<div><img src='"+ folder + val +"'></div>");
 					}
@@ -81,6 +85,22 @@ class Landing extends Component {
 		return ["January", "February", "March", "April", "May", "June",
 		 "July", "August", "September", "October", "November", "December"][d.getMonth()] +
 		 ' ' + d.getDate() + ' ' + d.getFullYear();
+	}
+
+	changeCharity(ev) {
+			ev.preventDefault();
+			let charityId = ev.target.id;
+			$.ajax({
+					url: "/v1/user/charity",
+					method: 'put',
+					data: {charityId}
+			})
+					.then(() => {
+							this.props.history.push(`/profile/${this.props.match.params.username}`);
+					}).fail(err => {
+					let errorEl = document.getElementById('errorMsg');
+					errorEl.innerHTML = `Error: ${err.error}`;
+			})
 	}
 
 	render() {
@@ -101,8 +121,8 @@ class Landing extends Component {
 		let event_list = this.state.events.length > 0 ?
 			this.state.events.map((e, index) => (<tr key = {index}>
 					<td style={{verticalAlign: 'middle', height:'50px'}}>{e.location}</td>
-					<td style={{verticalAlign: 'middle', height:'50px'}}><a className="button apricot hover-apple-core right"
-					href="/event/" style={{width:'70%'}}>{this.dateFormat(new Date(e.date))}</a></td>
+					<td style={{verticalAlign: 'middle', height:'50px'}}><Link className="button apricot hover-apple-core right"
+					to={`/event/${e._id}`} style={{width:'70%'}}>{this.dateFormat(new Date(e.date))}</Link></td>
 				</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'50px'}}>No events</td></tr>;
 
@@ -110,8 +130,8 @@ class Landing extends Component {
 			this.state.charities.map((c, index) => (<tr key = {index}>
 					  <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={c.picture}/></td>
 					  <td style={{verticalAlign: 'middle', height:'100px'}}>{c.charity_name}</td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><a className="button blueberry hover-apple-core right" href="/charity/">Learn More</a></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><a className="button apricot hover-apple-core right" href="/charity/">Select</a></td>
+					  <td style={{verticalAlign: 'middle', height:'100px'}}><Link className="button blueberry hover-apple-core right" to = {`/charity/${c._id}`}>Learn More</Link></td>
+					  <td style={{verticalAlign: 'middle', height:'100px'}}><button id={c._id} onClick={this.changeCharity} className="button apricot hover-apple-core right">Select</button></td>
 					</tr>)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No charities</td></tr>;
 
@@ -120,8 +140,8 @@ class Landing extends Component {
 			<tr key = {index}>
 				<td style={{verticalAlign: 'middle', height:'100px'}}><img src={g.picture} style={{maxWidth:'267px', maxHeight:'100px'}}/></td>
 				<td style={{verticalAlign: 'middle', height:'100px'}}>{g.game_name}</td>
-				<td style={{verticalAlign: 'middle', height:'100px'}}><a className="button blueberry hover-apple-core right" href="/game/">Learn More</a></td>
-				<td style={{verticalAlign: 'middle', height:'100px'}}><a className="button apricot hover-apple-core right" href="/game/">Play</a></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><Link className="button blueberry hover-apple-core right" to={`/game/${g._id}`}>Learn More</Link></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><Link className="button apricot hover-apple-core right" to={"/simpledonate"}>Play</Link></td>
 			 </tr>
 			)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No games</td></tr>;
