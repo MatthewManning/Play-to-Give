@@ -16,15 +16,15 @@ class SimpleDonate extends Component {
 	componentDidMount(){
 		let game = document.getElementById('game');
 		game.style.display = 'none';
-		
+
 		// watch for game completion
-		window.addEventListener('score', function(e) { 
+		window.addEventListener('score', function(e) {
 			console.log(e.data);
-			
+
 			const data = {
 				score: e.data
 			};
-			
+
 			$.ajax({
 				url: `/v1/game/create`,
 				method: 'post',
@@ -132,8 +132,8 @@ class SimpleDonate extends Component {
 			<tr key = {index}>
 				<td style={{verticalAlign: 'middle', height:'100px'}}><img src={g.picture} style={{maxWidth:'267px', maxHeight:'100px'}}/></td>
 				<td style={{verticalAlign: 'middle', height:'100px'}}>{g.game_name}</td>
-				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
-				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right" onClick={this.donateClick.bind(this, user.username)}>Play</button></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><Link className="button blueberry hover-apple-core right" to={`/game/${g._id}`}>Learn More</Link></td>
+				<td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right" onClick={this.donateClick.bind(this, user.username)}>Play</button></td>
 			 </tr>
 			)):
 			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No games</td></tr>;
