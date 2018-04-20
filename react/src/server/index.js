@@ -124,6 +124,7 @@ let server = app.listen(port, () => {
                                                     console.log(payout);
                                                 }
                                             });
+                                            app.models.PlayerGame.remove({}).then(()=> {console.log('should have removed games')});
                                         }
                                     );
                             }
@@ -132,8 +133,6 @@ let server = app.listen(port, () => {
                     console.log(err)
                 }
             )
-            .then(
-                app.models.PlayerGame.remove()
-            )
+
     })
 });

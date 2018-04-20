@@ -48,4 +48,16 @@ module.exports = app => {
                 }
             );
     });
+	app.get('/v1/charities/:charity', (req, res) => {
+        app.models.Charity.findOne({ _id: req.params.charity})
+            .then(
+                charity => {
+                    if (!charity) res.status(404).send({error: `unknown charity: ${req.params.charity}`})
+                    else res.status(200).send({charity: charity});
+                }, err => {
+                    console.log(err);
+                    res.status(500).send({error: 'server error'})
+                }
+            )
+    })
 };

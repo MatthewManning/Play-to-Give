@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { withRouter }       from 'react-router';
+import { Link }             from 'react-router-dom';
 
 
 class Edit extends Component {
@@ -76,7 +77,7 @@ class Edit extends Component {
             this.state.charities.map((c, index) => (<tr key = {index}>
                 <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={c.picture}/></td>
                 <td style={{verticalAlign: 'middle', height:'100px'}}>{c.charity_name}</td>
-                <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
+                <td style={{verticalAlign: 'middle', height:'100px'}}><Link className="button blueberry hover-apple-core right" to = {`/charity/${c._id}`}>Learn More</Link></td>
                 <td style={{verticalAlign: 'middle', height:'100px'}}><button id={c._id} onClick={this.changeCharity} className="button apricot hover-apple-core right">Select</button></td>
             </tr>)):
             <tr><td style={{verticalAlign: 'middle', height:'100px'}}>No charities</td></tr>;

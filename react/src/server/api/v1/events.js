@@ -55,4 +55,17 @@ module.exports = app => {
                 }
             );
     });
+
+    app.get('/v1/events/:event', (req, res) => {
+        app.models.Event.findOne({ _id: req.params.event})
+            .then(
+                event => {
+                    if (!event) res.status(404).send({error: `unknown event: ${req.params.event}`});
+                    else res.status(200).send({event: event});
+                }, err => {
+                    console.log(err);
+                    res.status(500).send({error: 'server error'})
+                }
+            )
+    })
 };
