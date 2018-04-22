@@ -25,6 +25,8 @@ class Profile extends Component {
         })
             .then(data => {
                 this.setState({ user: data });
+                console.log(data);
+                console.log(this.state.user)
             })
             .fail(err => {
                 console.log(err)
@@ -43,34 +45,32 @@ class Profile extends Component {
         // Is the logged in user viewing their own profile
         const user = this.props.match.params.username;
         const isUser = this.props.match.params.username === this.props.user.getUser().username;
-        return <div className="row content" style={{marginTop: 100}}>
-            <div className="col-xs-4">
-                <h4 style={{margin: 0}}><b>User Information</b></h4>
-                { isUser ? <Link to={`/profile/${this.props.match.params.username}/edit`}>Edit Profile</Link> : undefined }
-            </div>
-            <div className="col-xs-10">
-                <div className="row">
-                    <div className="col-xs-11">
-                        <div className="col-xs-3 text-right">
-                            <p><b>Username:</b></p>
-                            <p><b>First Name:</b></p>
-                            <p><b>Last Name:</b></p>
-                            <p><b>Email Address:</b></p>
-                            <p><b>Main Charity:</b></p>
-                        </div>
-                        <div className="col-xs-6">
-                            <p>{this.state.user.username}</p>
-                            <p>{this.state.user.first_name}</p>
-                            <p>{this.state.user.last_name}</p>
-                            <p>{this.state.user.primary_email}</p>
-                            <p>{this.state.user.main_charity}</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <button onClick={this.playGame} className="button block blueberry hover-apple-core padding-16 section right">Play Game </button>
-                </div>
-            </div>
+        return <div>
+          <div className="container content padding-64" style={{maxWidth:'800px'}}>
+              <h2 className="wide center">{this.state.user.username}</h2>
+              { isUser ? <Link className="button block blueberry hover-apple-core padding-16 section right" to={`/profile/${this.props.match.params.username}/edit`}>Edit Profile</Link> : <br /> }
+          </div>
+          <table style={{margin: 'auto'}} className = "table-all white text-grey">
+            <tbody>
+              <tr>
+                <td style={{verticalAlign: 'middle', height:'100px'}}><b>First Name:</b></td>
+                <td style={{verticalAlign: 'middle', height:'100px'}}>{this.state.user.first_name}</td>
+              </tr>
+              <tr>
+                <td style={{verticalAlign: 'middle', height:'100px'}}><b>Last Name:</b></td>
+                <td style={{verticalAlign: 'middle', height:'100px'}}>{this.state.user.last_name}</td>
+              </tr>
+              <tr>
+                <td style={{verticalAlign: 'middle', height:'100px'}}><b>Email Address:</b></td>
+                <td style={{verticalAlign: 'middle', height:'100px'}}>{this.state.user.primary_email}</td>
+              </tr>
+              <tr>
+                <td style={{verticalAlign: 'middle', height:'100px'}}><b>Charity:</b></td>
+                <td style={{verticalAlign: 'middle', height:'100px'}}>{this.state.user.main_charity}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button onClick={this.playGame} className="button block blueberry hover-apple-core padding-16 section right">Play Game </button>
         </div>
     }
 }
