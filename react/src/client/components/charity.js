@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Component }			from 'react';
+import { withRouter }						from 'react-router-dom';
 
 class Charity extends Component {
 	constructor(props) {
@@ -11,15 +12,15 @@ class Charity extends Component {
     }
 
 	componentDidMount(){
-
+		console.log(this.props.match.params.charity);
 		$.ajax({
-			url: `/v1/charities`,
+			url: `/v1/charities/${this.props.match.params.charity}`,
 			method: "get",
 		})
 
 			.then(data => {
-				console.log(data.charities);
-				this.setState({charity: data.charities});
+				console.log(data.charity);
+				this.setState({charity: data.charity});
 			})
 			.fail(err => {
 				console.log(err.error);
@@ -34,33 +35,22 @@ class Charity extends Component {
 
 	render() {
 
-		let charity_list = this.state.charity.length > 0 ?
-			this.state.charity.map((c, index) => (<tr key = {index}>
-					  <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={c.picture}/></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}>{c.charity_name}</td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right">Select</button></td>
-					</tr>)):
-			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No chariy</td></tr>;
-
-        const page_html =
-				<div>
-					<div className="container content padding-64">
-						<img className="center padding-16" src={c.picture}/>
-					</div>
-					<div className="container content padding-64" style={{maxWidth:'800px'}}>
-					  <h2 className="wide center">{c.charity_name}></h2>
-							<br />
-							<br />
-					  	<p className="opacity center"><i>About this charity</i></p><br />
-					  	<p className="center padding-16">
-								{c.summary}
-						  </p>
-					</div>
-				</div>;
+    const page_html =
+			<div>
+				<div className="container content padding-64">
+					<img className="center padding-16" src={this.state.charity.picture}/>
+				</div>
+				<div className="container content padding-64" style={{maxWidth:'800px'}}>
+				  <h2 className="wide center">{this.state.charity.charity_name}</h2>
+				  	<p className="opacity center"><i>About this charity</i></p><br />
+				  	<p className="center padding-16">
+							{this.state.charity.summary}
+					  </p>
+				</div>
+			</div>;
 
 		return page_html;
     };
 }
 
-export default Charity;
+export default withRouter(Charity);

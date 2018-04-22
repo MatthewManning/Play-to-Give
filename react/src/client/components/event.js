@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Component }			from 'react';
+import { withRouter }						from 'react-router-dom';
 
 class Event extends Component {
 	constructor(props) {
@@ -11,15 +12,15 @@ class Event extends Component {
     }
 
 	componentDidMount(){
-
+		console.log(this.props.match.params.event);
 		$.ajax({
-			url: `/v1/events`,
+			url: `/v1/events/${this.props.match.params.event}`,
 			method: "get",
 		})
 
 			.then(data => {
-				console.log(data.events);
-				this.setState({event: data.events});
+				console.log(data.event);
+				this.setState({event: data.event});
 			})
 			.fail(err => {
 				console.log(err.error);
@@ -34,49 +35,39 @@ class Event extends Component {
 
 	render() {
 
-		let event_list = this.state.event.length > 0 ?
-			this.state.event.map((e, index) => (<tr key = {index}>
-					  <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={e.picture}/></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}>{e.event_name}</td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right">Select</button></td>
-					</tr>)):
-			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No event</td></tr>;
-
-        const page_html =
-				<div>
-					<div className="container content padding-64">
-						<img className="center padding-16" src={e.picture}/>
-					</div>
-					<div className="container content padding-64" style={{maxWidth:'800px'}}>
-					  <h2 className="wide center">{e.event_name}></h2>
-							<br />
-							<br />
-					  	<p className="opacity center"><i>About this event</i></p><br />
-							<table style={{margin: 'auto'}} className = "table-all white text-grey">
+    const page_html =
+			<div>
+				<div className="container content padding-64" style={{maxWidth:'800px'}}>
+				  <h2 className="wide center">{this.state.event.event_name}</h2>
+						<br />
+						<br />
+				  	<p className="opacity center"><i>About this event</i></p><br />
+						<table style={{margin: 'auto'}} className = "table-all white text-grey">
+							<tbody>
 								<tr>
 									<td style={{verticalAlign: 'middle', height:'100px'}}>Location: </td>
-									<td style={{verticalAlign: 'middle', height:'100px'}}>{e.location} </td>
+									<td style={{verticalAlign: 'middle', height:'100px'}}>{this.state.event.location} </td>
 								</tr>
 								<tr>
 									<td style={{verticalAlign: 'middle', height:'100px'}}>Date: </td>
-									<td style={{verticalAlign: 'middle', height:'100px'}}>{e.date} </td>
+									<td style={{verticalAlign: 'middle', height:'100px'}}>{this.state.event.date} </td>
 								</tr>
 								<tr>
 									<td style={{verticalAlign: 'middle', height:'100px'}}>Time: </td>
-									<td style={{verticalAlign: 'middle', height:'100px'}}>{e.time} </td>
+									<td style={{verticalAlign: 'middle', height:'100px'}}>{this.state.event.time} </td>
 								</tr>
-							</table>
-							<br />
-							<br />
-							<p className="center padding-16">
-								{e.summary}
-						  </p>
-					</div>
-				</div>;
+							</tbody>
+						</table>
+						<br />
+						<br />
+						<p className="center padding-16">
+							{this.state.event.summary}
+					  </p>
+				</div>
+			</div>;
 
 		return page_html;
     };
 }
 
-export default Event;
+export default withRouter(Event);

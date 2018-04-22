@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Component }			from 'react';
+import { withRouter }						from 'react-router-dom';
 
 class Game extends Component {
 	constructor(props) {
@@ -11,15 +12,15 @@ class Game extends Component {
     }
 
 	componentDidMount(){
-
+		console.log(this.props.match.params.game);
 		$.ajax({
-			url: `/v1/games`,
+			url: `/v1/games/${this.props.match.params.game}`,
 			method: "get",
 		})
 
 			.then(data => {
-				console.log(data.games);
-				this.setState({game: data.games});
+				console.log(data.game);
+				this.setState({game: data.game});
 			})
 			.fail(err => {
 				console.log(err.error);
@@ -34,33 +35,22 @@ class Game extends Component {
 
 	render() {
 
-		let game_list = this.state.game.length > 0 ?
-			this.state.game.map((g, index) => (<tr key = {index}>
-					  <td style={{verticalAlign: 'middle', textAlign:'center', height:'100px'}}><img style={{maxWidth:'60%', minWidth:'30%', maxHeight:'100px'}} src={g.picture}/></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}>{g.game_name}</td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button blueberry hover-apple-core right">Learn More</button></td>
-					  <td style={{verticalAlign: 'middle', height:'100px'}}><button className="button apricot hover-apple-core right">Select</button></td>
-					</tr>)):
-			<tr><td style={{verticalAlign: 'middle', height:'100px'}}>No game</td></tr>;
-
-        const page_html =
-				<div>
-					<div className="container content padding-64">
-						<img className="center padding-16" src={g.picture}/>
-					</div>
-					<div className="container content padding-64" style={{maxWidth:'800px'}}>
-					  <h2 className="wide center">{g.game_name}></h2>
-							<br />
-							<br />
-					  	<p className="opacity center"><i>About this game</i></p><br />
-					  	<p className="center padding-16">
-								{g.summary}
-						  </p>
-					</div>
-				</div>;
+    const page_html =
+			<div>
+				<div className="container content padding-64">
+					<img className="center padding-16" src={this.state.game.picture}/>
+				</div>
+				<div className="container content padding-64" style={{maxWidth:'800px'}}>
+				  <h2 className="wide center">{this.state.game.game_name}</h2>
+				  	<p className="opacity center"><i>About this game</i></p><br />
+				  	<p className="center padding-16">
+							{this.state.game.summary}
+					  </p>
+				</div>
+			</div>;
 
 		return page_html;
     };
 }
 
-export default Game;
+export default withRouter(Game);
