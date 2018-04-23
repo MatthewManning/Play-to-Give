@@ -89,30 +89,32 @@ class Edit extends Component {
                     <div className="center-block">
                         <p id="errorMsg" className="bg-danger"/>
                     </div>
-                    <h2>Change your name:</h2>
+                    <h2 className="center">Change your name:</h2>
                     <form className="form-horizontal">
                         <div className="form-group">
-                            <label className="col-sm-2 control-label" htmlFor="first_name">First Name:</label>
-                            <div className="col-sm-10">
-                                <input className="form-control" id="first_name" type="text" placeholder="First Name"/>
+                            <label className="col-xs-6 control-label center" htmlFor="first_name">First Name:</label>
+                            <div className="col-xs-6">
+                                <input className="form-control center" id="first_name" type="text" placeholder="First Name"/>
                             </div>
                         </div>
                         <div className="form-group">
-                            <label className="col-sm-2 control-label" htmlFor="last_name">Last Name:</label>
-                            <div className="col-sm-10">
-                                <input className="form-control" id="last_name" type="text" placeholder="Last Name"/>
+                            <label className="col-xs-6 control-label center" htmlFor="last_name">Last Name:</label>
+                            <div className="col-xs-6">
+                                <input className="form-control center" id="last_name" type="text" placeholder="Last Name"/>
                             </div>
                         </div>
                         <div className="form-group">
                             <div className="col-sm-offset-2 col-sm-10">
-                                <button onClick={this.onSubmit} className="btn btn-default">Edit</button>
+                                <button onClick={this.onSubmit} className="button blueberry hover-apple-core padding-12 xlarge large-font center">Edit</button>
                             </div>
                         </div>
                     </form>
                     <div>
-                        <h2>Change your main charity:</h2>
+                        <br />
+                        <br />
+                        <h2 className="center">Change your charity:</h2>
                         <table style={{margin: 'auto'}} className = 'col-xs-12'>
-                            <thead style={{width:'60%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
+                            <thead style={{width:'100%', maxWidth:'600px', margin: 'auto'}} className="table-all white text-grey">
                             {charity_list}
                             </thead>
                         </table>

@@ -47,8 +47,14 @@ class Profile extends Component {
         const isUser = this.props.match.params.username === this.props.user.getUser().username;
         return <div>
           <div className="container content padding-64" style={{maxWidth:'800px'}}>
-              <h2 className="wide center">{this.state.user.username}</h2>
-              { isUser ? <Link className="button block blueberry hover-apple-core padding-16 section right" to={`/profile/${this.props.match.params.username}/edit`}>Edit Profile</Link> : <br /> }
+                { isUser ?
+                  <h2 className="wide center">{this.state.user.username}
+                    <br />
+                    <br />
+                    <Link className="button blueberry hover-apple-core padding-12 xlarge large-font" to={`/profile/${this.props.match.params.username}/edit`}>Edit Profile</Link>
+                  </h2>
+                  : <h2 className="wide center">{this.state.user.username}</h2>}
+
           </div>
           <table style={{margin: 'auto'}} className = "table-all white text-grey">
             <tbody>
@@ -70,7 +76,7 @@ class Profile extends Component {
               </tr>
             </tbody>
           </table>
-          <button onClick={this.playGame} className="button block blueberry hover-apple-core padding-16 section right">Play Game </button>
+          <button onClick={this.playGame} className="button block blueberry hover-apple-core padding-16 section right large-font">Play Game </button>
         </div>
     }
 }
