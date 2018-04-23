@@ -125,8 +125,12 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .greyscale-max,.grayscale-max,.hover-greyscale:hover,.hover-grayscale:hover{filter:grayscale(100%)}
 .greyscale,.grayscale{filter:grayscale(75%)}.greyscale-min,.grayscale-min{filter:grayscale(50%)}
 .sepia{filter:sepia(75%)}.sepia-max,.hover-sepia:hover{filter:sepia(100%)}.sepia-min{filter:sepia(50%)}
-.tiny{font-size:10px!important}.small{font-size:12px!important}.medium{font-size:15px!important}.large{font-size:18px!important}
-.xlarge{font-size:24px!important}.xxlarge{font-size:36px!important}.xxxlarge{font-size:48px!important}.jumbo{font-size:64px!important}
+.tiny-font{font-size:10px!important}.small-font{font-size:12px!important}.medium-font{font-size:15px!important}.large-font{font-size:18px!important}
+.xlarge-font{font-size:24px!important}.xxlarge-font{font-size:36px!important}.xxxlarge-font{font-size:48px!important}.jumbo-font{font-size:64px!important}
+.tiny{max-width:16px!important;max-height:16px!important}.small{max-width:32px!important;max-height:32px!important}
+.medium{max-width:64px!important;max-height:64px!important}.large{max-width:128px!important;max-height:128px!important}
+.xlarge{max-width:256px!important;max-height:256px!important}.xxlarge{max-width:512px!important;max-height:512px!important}
+.xxxlarge{max-width:1024px!important;max-height:1024px!important}.jumbo{max-width:2048px!important;max-height:2048px!important}
 .left-align{text-align:left!important}.right-align{text-align:right!important}.justify{text-align:justify!important}.center{text-align:center!important}
 .border-0{border:0!important}.border{border:1px solid #ccc!important}
 .border-top{border-top:1px solid #ccc!important}.border-bottom{border-bottom:1px solid #ccc!important}
