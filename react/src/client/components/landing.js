@@ -233,7 +233,7 @@ class Landing extends Component {
 				</div>
 			  </div>
 
-			  <footer className="container padding-64 center opacity light-grey xlarge">
+			  <footer className="container padding-64 center opacity light-grey xlarge-font">
 				  <i className="fa fa-facebook-official hover-opacity"></i>
 				  <i className="fa fa-instagram hover-opacity"></i>
 				  <i className="fa fa-snapchat hover-opacity"></i>
