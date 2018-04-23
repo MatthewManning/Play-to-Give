@@ -37,10 +37,8 @@ class Event extends Component {
 
     const page_html =
 			<div>
-				<div className="container content padding-64" style={{maxWidth:'800px'}}>
-				  <h2 className="wide center">{this.state.event.event_name}</h2>
-						<br />
-						<br />
+				<div className="container content" style={{maxWidth:'800px'}}>
+				  <h2 className="center padding-12832">{this.state.event.event_name}</h2>
 				  	<p className="opacity center"><i>About this event</i></p><br />
 						<table style={{margin: 'auto'}} className = "table-all white text-grey">
 							<tbody>

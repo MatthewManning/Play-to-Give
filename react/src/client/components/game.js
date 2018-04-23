@@ -37,11 +37,11 @@ class Game extends Component {
 
     const page_html =
 			<div>
-				<div className="container content padding-64">
-					<img className="center padding-16" src={this.state.game.picture}/>
+				<div className="center container content">
+					<img className="center padding-6432" style={{width:'20vw', margin:'auto'}} src={this.state.game.picture}/>
 				</div>
-				<div className="container content padding-64" style={{maxWidth:'800px'}}>
-				  <h2 className="wide center">{this.state.game.game_name}</h2>
+				<div className="container content" style={{maxWidth:'800px'}}>
+				  <h2 className="center">{this.state.game.game_name}</h2>
 				  	<p className="opacity center"><i>About this game</i></p><br />
 				  	<p className="center padding-16">
 							{this.state.game.summary}
